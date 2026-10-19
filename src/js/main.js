@@ -14,6 +14,8 @@ const serviceData=[
 const services=document.getElementById('services');
 const serviceCount=serviceData.length;
 const copies=[...serviceData,...serviceData,...serviceData,...serviceData];
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollBehavior=()=>reducedMotion.matches?'auto':'smooth';
 services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" loading="lazy"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
 
 const dots=document.getElementById('serviceDots');
@@ -24,7 +26,7 @@ let settleTimer=null, isProgrammaticScroll=false;
 const gap=()=>parseFloat(getComputedStyle(services).gap)||14;
 const copyWidth=()=>cards[serviceCount] ? cards[serviceCount].offsetLeft-cards[0].offsetLeft : 0;
 
-function centerCard(card,behavior='smooth'){
+function centerCard(card,behavior=scrollBehavior()){
   if(!card)return;
   const trackRect=services.getBoundingClientRect();
   const cardRect=card.getBoundingClientRect();
@@ -54,6 +56,7 @@ function currentIndex(){
 function updateDots(){
   const idx=((currentIndex()%dots.children.length)+dots.children.length)%dots.children.length;
   dots.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  announceCarousel();
   const center=nearestCard();
   cards.forEach(c=>c.classList.toggle('is-center',c===center));
 }
@@ -69,7 +72,7 @@ function scheduleSettle(){
   settleTimer=setTimeout(()=>{
     normalizeLoop();
     const centered=nearestCard();
-    if(centered) centerCard(centered,'smooth');
+    if(centered) centerCard(centered,scrollBehavior());
     setTimeout(()=>{isProgrammaticScroll=false;updateDots();},380);
   },110);
 }
@@ -119,7 +122,7 @@ function endDrag(e){
     // Cópias repetidas garantem que exista sempre um cartão à esquerda e à direita.
     target=cards[Math.max(0,Math.min(cards.length-1,idx+(totalX<0?1:-1)))] || current;
   }
-  if(target)centerCard(target,'smooth');
+  if(target)centerCard(target,scrollBehavior());
   scheduleSettle();
 }
 ['pointerup','pointercancel','pointerleave'].forEach(ev=>services.addEventListener(ev,endDrag));
@@ -138,13 +141,21 @@ function moveCarousel(dir){
   if(target)centerCard(target,'smooth');
   scheduleSettle();
 }
-document.getElementById('prevService').onclick=()=>moveCarousel(-1);
-document.getElementById('nextService').onclick=()=>moveCarousel(1);
+document.getElementById('prevService').addEventListener('click',()=>moveCarousel(-1));
+document.getElementById('nextService').addEventListener('click',()=>moveCarousel(1));
+function announceCarousel(){const status=document.getElementById('carouselStatus');const active=nearestCard();const heading=active&&active.querySelector('h3');if(status&&heading)status.textContent='Tratamento em destaque: '+heading.textContent;}
+services.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();moveCarousel(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveCarousel(-1)}});
 
-const menuBtn=document.getElementById('menuBtn'),mobile=document.getElementById('mobileMenu');menuBtn.onclick=()=>mobile.classList.toggle('open');mobile.querySelectorAll('a').forEach(a=>a.onclick=()=>mobile.classList.remove('open'));
+const menuBtn=document.getElementById('menuBtn'),mobile=document.getElementById('mobileMenu');
+function setMobileMenu(open){mobile.hidden=!open;mobile.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');}
+menuBtn.addEventListener('click',()=>setMobileMenu(mobile.hidden));
+mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMobileMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobile.hidden){setMobileMenu(false);menuBtn.focus();}});
 document.getElementById('waFloat').onclick=()=>window.open(WA,'_blank','noopener,noreferrer');
 
-const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
-document.querySelectorAll('.gallery-item').forEach(item=>item.addEventListener('click',()=>{lbImg.src=item.dataset.full;lb.classList.add('open');lb.setAttribute('aria-hidden','false')}));
-function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.removeAttribute('src')}
-document.getElementById('closeLightbox').onclick=closeLB;lb.onclick=e=>{if(e.target===lb)closeLB()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),lbClose=document.getElementById('closeLightbox');
+let lightboxOpener=null;
+document.querySelectorAll('.gallery-item').forEach(item=>item.addEventListener('click',()=>{lightboxOpener=item;lbImg.src=item.dataset.full;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lbClose.focus();}));
+function closeLB(){if(lb.getAttribute('aria-hidden')==='true')return;lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.removeAttribute('src');document.body.style.overflow='';if(lightboxOpener&&typeof lightboxOpener.focus==='function')lightboxOpener.focus();lightboxOpener=null;}
+lbClose.addEventListener('click',closeLB);lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+lb.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeLB();return;}if(e.key==='Tab'){const focusable=Array.from(lb.querySelectorAll('button,[href],input,[tabindex]:not([tabindex="-1"])')).filter(el=>!el.disabled);if(!focusable.length){e.preventDefault();lb.focus();return;}const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
