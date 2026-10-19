@@ -1,7 +1,7 @@
 
 :root{
   --ink:#07111f;--ink2:#0d1b2c;--blue:#2167d7;--blue2:#75a8ff;--ice:#f3f7fb;--paper:#fff;
-  --muted:#7c8999;--line:rgba(7,17,31,.12);--radius:28px;--shadow:0 24px 70px rgba(7,17,31,.12);
+  --muted:#5d6b7b;--line:rgba(7,17,31,.12);--radius:28px;--shadow:0 24px 70px rgba(7,17,31,.12);
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.5;overflow-x:hidden}a{text-decoration:none;color:inherit}button{font:inherit}img{display:block;max-width:100%}
 .container{width:min(1180px,calc(100% - 36px));margin:auto}.mono{font-family:'Space Grotesk',sans-serif}.display{font-family:'Syne',sans-serif}.serif{font-family:'Playfair Display',serif;font-style:normal}.eyebrow{font:700 .72rem 'Space Grotesk',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
@@ -635,3 +635,7 @@ button:disabled,input:disabled{cursor:not-allowed;opacity:.62}
 @media (max-width:900px){.navlinks{display:none}.menu{display:inline-flex;align-items:center;justify-content:center}.mobile-menu:not([hidden]){display:block}.mobile-menu{background:#07111f}.mobile-menu a{color:#fff}.hero,.section,.booking-section{scroll-margin-top:90px}}
 @media (min-width:901px){.mobile-menu{display:none!important}}
 @media (max-width:360px){.container{width:calc(100% - 24px)}.hero-title{font-size:clamp(2.6rem,13vw,3.2rem)}.booking-steps{gap:4px}.booking-steps li{gap:5px;font-size:.8rem}.booking-steps span{font-size:.65rem}}
+
+/* Contraste AA para textos secundários em fundos claros. */
+.result-note{color:#5c6978}
+.fact span{color:#566578}
