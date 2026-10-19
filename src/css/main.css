@@ -639,3 +639,6 @@ button:disabled,input:disabled{cursor:not-allowed;opacity:.62}
 /* Contraste AA para textos secundários em fundos claros. */
 .result-note{color:#5c6978}
 .fact span{color:#566578}
+
+/* Reforço explícito: o campo de nome mantém foco visível mesmo com estilos locais. */
+.name-field input:focus-visible{outline:3px solid #75a8ff;outline-offset:4px;box-shadow:0 0 0 2px #07111f}
