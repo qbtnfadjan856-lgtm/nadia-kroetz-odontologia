@@ -128,9 +128,30 @@
 
   function renderSummary(){
     const svc=BOOK_SERVICES[state.service];
-    $('bookingSummary').innerHTML=`<div class="summary-card"><span>Nome</span><strong>${state.name}</strong></div><div class="summary-card"><span>Serviço</span><strong>${svc[0]}</strong></div><div class="summary-card"><span>Dia</span><strong>${state.day}</strong></div><div class="summary-card"><span>Período</span><strong>${state.period}</strong></div>`;
+    const summary=$('bookingSummary');
+    summary.replaceChildren();
+    const rows=[
+      ['Nome',state.name],
+      ['Serviço',svc[0]],
+      ['Dia',state.day],
+      ['Período',state.period]
+    ];
+    rows.forEach(([label,value])=>{
+      const card=document.createElement('div');
+      card.className='summary-card';
+      const caption=document.createElement('span');
+      caption.textContent=label;
+      const detail=document.createElement('strong');
+      detail.textContent=value;
+      card.append(caption,detail);
+      summary.appendChild(card);
+    });
     const msg=`Olá! Meu nome é ${state.name}. Quero agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
-    $('bookingMessage').innerHTML=`<small>Mensagem que será enviada</small>${msg}`;
+    const preview=$('bookingMessage');
+    preview.replaceChildren();
+    const heading=document.createElement('small');
+    heading.textContent='Mensagem que será enviada';
+    preview.append(heading,document.createTextNode(msg));
   }
   updateSelectedService();
   updateButton();
