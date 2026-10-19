@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Nadia Kroetz Odontologia — atendimento odontológico em Crissiumal/RS." name="description"/>
+<meta content="#07111f" name="theme-color"/>
+<title>Nadia Kroetz Odontologia | Crissiumal - RS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@500;600;700;800&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/src/css/main.css">
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<header>
+<div class="container nav">
+<a aria-label="Nadia Kroetz Odontologia" class="brand" href="#inicio">
+<div class="brand-mark">NK</div>
+<div class="brand-text"><strong>Nadia Kroetz</strong><span>ODONTOLOGIA</span></div>
+</a>
+<nav class="navlinks">
+<a href="#tratamentos">Tratamentos</a><a href="#sobre">A clínica</a><a href="#contato">Contato</a>
+</nav>
+<button aria-label="Abrir menu" class="menu" id="menuBtn">☰</button>
+</div>
+<div class="mobile-menu" id="mobileMenu"><a href="#tratamentos">Tratamentos</a><a href="#sobre">A clínica</a><a href="#contato">Contato</a><a href="#agendar">Agendar</a></div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">Nadia Kroetz Odontologia · Crissiumal/RS</div>
+<h1 class="hero-title">Seu sorriso.<br/><span class="line-blue">Sua história.</span><br/>Seu jeito.</h1>
+<p>Odontologia com experiência, cuidado e tecnologia para acompanhar cada etapa do seu sorriso — da avaliação ao planejamento do tratamento.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/555591027872?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Nadia%20Kroetz%20Odontologia." rel="noopener" target="_blank">Agendar avaliação →</a><a class="btn btn-outline" href="#tratamentos">Conhecer tratamentos</a></div>
+<div class="hero-meta"><div><strong>19+ anos</strong><span>de experiência</span></div><div><strong>CRO/RS 17485</strong><span>Dra. Nádia Kroetz</span></div><div><strong>Crissiumal</strong><span>Rio Grande do Sul</span></div></div>
+</div>
+<div class="hero-person">
+<img alt="Dra. Nádia Kroetz" fetchpriority="high" src="/assets/images/asset-01.png"/>
+
+</div>
+</div>
+</section>
+<section class="section" id="sobre"><div class="container intro"><div class="intro-left"><div class="intro-title"><div class="eyebrow">Uma nova experiência</div><h2>Odontologia pensada para você.</h2></div><div class="intro-copy"><p>Um atendimento que combina <strong>escuta, planejamento e tecnologia</strong> para cuidar da saúde, função e estética do sorriso com atenção aos detalhes.</p><p>Na Nadia Kroetz Odontologia, você encontra diferentes soluções em um único lugar, com uma jornada clara desde a primeira avaliação.</p><div class="signature">Nádia Kroetz</div></div></div><div class="team-feature">
+   <figure class="team-photo"><img alt="Equipe da Nadia Kroetz Odontologia" loading="lazy" src="/assets/images/asset-02.jpg"/></figure>
+</div>
+</div></section>
+<section class="section treatments" id="tratamentos">
+<div class="container">
+<div class="section-top">
+<div><div class="eyebrow" style="color:#7eaeff">Tratamentos</div><h2 class="section-title">Conheça nossos tratamentos.</h2></div>
+<p class="section-desc"></p>
+</div>
+<div class="treatment-track" id="services" aria-label="Tratamentos odontológicos"></div>
+<div class="carousel-controls"><button aria-label="Anterior" class="arrow" id="prevService">←</button><div class="carousel-dots" id="serviceDots" aria-hidden="true"></div><button aria-label="Próximo" class="arrow" id="nextService">→</button></div>
+</div>
+</section><section aria-labelledby="booking-title" class="section booking-section" id="agendar">
+<div class="container booking-shell">
+<div class="booking-intro">
+<div>
+<div class="eyebrow">Agendamento</div>
+<h2 class="section-title" id="booking-title">Agende de um jeito simples.</h2>
+</div>
+<p class="section-desc">Escolha o que você procura, indique uma preferência e revise a mensagem. No final, o WhatsApp abre pronto para conversar com a equipe.</p>
+</div>
+<ol aria-label="Etapas do agendamento" class="booking-steps">
+<li class="active" data-book-step="1"><span>01</span><b>Serviço</b></li>
+<li data-book-step="2"><span>02</span><b>Preferência</b></li>
+<li data-book-step="3"><span>03</span><b>Confirmação</b></li>
+</ol>
+<div class="booking-panel">
+<div class="booking-page" id="bookStep1">
+<div class="booking-question">
+<span class="booking-kicker">01 / Serviço</span>
+<h3>O que você gostaria de agendar?</h3>
+<p>Selecione uma opção. Você poderá revisar tudo antes de abrir o WhatsApp.</p>
+</div>
+<div class="booking-options" id="bookingOptions"></div>
+</div>
+<div class="booking-page" hidden="" id="bookStep2">
+<div class="booking-question">
+<span class="booking-kicker">02 / Preferência</span>
+<h3>Quando seria melhor para você?</h3>
+<p>Confira o tratamento escolhido, informe seu nome e indique uma preferência. A equipe confirma a disponibilidade pelo WhatsApp.</p>
+</div>
+<div class="selected-service" id="selectedService"><span>Tratamento selecionado</span><strong id="selectedServiceName">—</strong></div>
+<div class="name-field">
+<label for="bookingName">Seu nome</label>
+<input id="bookingName" type="text" autocomplete="name" placeholder="Digite seu nome" maxlength="80">
+</div>
+<div class="choice-block">
+<h4>Dia da semana</h4>
+<div class="choice-row" id="bookingDays"></div>
+</div>
+<div class="choice-block">
+<h4>Período</h4>
+<div class="choice-row" id="bookingPeriods"></div>
+</div>
+<p class="booking-note">Segunda a sexta: 08h–20h · Sábado: 08h–14h.</p>
+</div>
+<div class="booking-page" hidden="" id="bookStep3">
+<div class="booking-question">
+<span class="booking-kicker">03 / Confirmação</span>
+<h3>Confira sua solicitação.</h3>
+<p>A mensagem abaixo será enviada para a equipe pelo WhatsApp.</p>
+</div>
+<div class="booking-summary" id="bookingSummary"></div>
+<div class="message-preview" id="bookingMessage"></div>
+</div>
+<div class="booking-error" id="bookingError" role="alert"></div>
+<div class="booking-nav">
+<button class="booking-back" hidden="" id="bookingBack" type="button">← Voltar</button>
+<button class="booking-next" disabled="" id="bookingNext" type="button"><span>Continuar</span><i>→</i></button>
+</div>
+</div>
+</div>
+</section>
+<section class="section"><div class="container about-grid"><article class="panel panel-dark"><div class="eyebrow" style="color:#7eaeff">Cuidado próximo</div><h3>Um atendimento com espaço para entender o seu caso.</h3><p>Conte o que você procura, tire suas dúvidas e converse com a equipe sobre o próximo passo. Cada tratamento é indicado após avaliação profissional.</p></article><article class="panel panel-light environment-panel"><figure class="environment-photo"><img alt="Ambiente da Nadia Kroetz Odontologia" loading="lazy" src="/assets/images/asset-03.jpg"/></figure></article></div></section>
+
+
+<section class="section location" id="contato"><div class="container location-grid"><div class="location-copy"><div class="location-head"><div><div class="eyebrow" style="color:#7eaeff">Onde nos encontrar</div><h2>Vamos conversar.</h2></div><p>Av. Santa Rosa, 167 · esquina com a Rua XV de Novembro · Centro — Crissiumal/RS</p></div><div class="location-actions"><a class="btn btn-primary" href="https://wa.me/555591027872" rel="noopener" target="_blank">WhatsApp</a><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Santa%20Rosa%20167%2C%20Crissiumal%2C%20RS" rel="noopener" target="_blank">Como chegar</a></div><div class="map"><iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps?q=Av.%20Santa%20Rosa%2C%20167%2C%20Crissiumal%2C%20RS&amp;output=embed" title="Mapa da Nadia Kroetz Odontologia"></iframe></div></div></div></section>
+
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>Nadia Kroetz</strong><span>ODONTOLOGIA</span><p>Dra. Nádia Kroetz · CRO/RS 17485<br/>Av. Santa Rosa, 167 · Crissiumal/RS</p></div><div class="footer-links"><a href="https://www.instagram.com/nadiakroetz.odonto" rel="noopener" target="_blank">Instagram</a><a href="https://wa.me/555591027872" rel="noopener" target="_blank">WhatsApp</a><a href="#contato">Localização</a></div></div><div class="legal">© 2026 Nadia Kroetz Odontologia. Todos os direitos reservados.</div></div></footer>
+<button aria-label="Abrir WhatsApp" class="whatsapp" id="waFloat">
+<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4.2c-6.5 0-11.7 5-11.7 11.3 0 2.2.7 4.3 2 6.1L4.7 27.8l6.4-1.5c1.5.8 3.1 1.2 4.9 1.2 6.5 0 11.7-5 11.7-11.3S22.5 4.2 16 4.2Zm0 21.1c-1.5 0-3-.4-4.3-1.1l-.3-.2-3.8.9.9-3.6-.2-.3c-1-1.5-1.5-3.2-1.5-5 0-5.1 4.1-9.2 9.2-9.2s9.2 4.1 9.2 9.2-4.1 9.3-9.2 9.3Zm5-6.9c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3 4.9 4.1.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+</button>
+<div aria-hidden="true" class="lightbox" id="lightbox"><button aria-label="Fechar" class="lightbox-close" id="closeLightbox">×</button><img alt="Imagem ampliada" id="lightboxImg"/></div>
+<script src="/src/js/main.js"></script>
+<script src="/src/js/booking.js"></script></body>
+</html>
