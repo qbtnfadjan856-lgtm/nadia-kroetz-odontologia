@@ -142,7 +142,7 @@ document.getElementById('prevService').onclick=()=>moveCarousel(-1);
 document.getElementById('nextService').onclick=()=>moveCarousel(1);
 
 const menuBtn=document.getElementById('menuBtn'),mobile=document.getElementById('mobileMenu');menuBtn.onclick=()=>mobile.classList.toggle('open');mobile.querySelectorAll('a').forEach(a=>a.onclick=()=>mobile.classList.remove('open'));
-document.getElementById('waFloat').onclick=()=>window.open(WA,'_blank');
+document.getElementById('waFloat').onclick=()=>window.open(WA,'_blank','noopener,noreferrer');
 
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
 document.querySelectorAll('.gallery-item').forEach(item=>item.addEventListener('click',()=>{lbImg.src=item.dataset.full;lb.classList.add('open');lb.setAttribute('aria-hidden','false')}));
