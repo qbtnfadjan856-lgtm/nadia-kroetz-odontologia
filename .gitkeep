@@ -1,0 +1,1 @@
+This branch was initialized for the static-site refactor. The complete project package is provided separately because this GitHub connector does not support binary file uploads and full large-file source writes in this workflow.
