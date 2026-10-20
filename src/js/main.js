@@ -16,7 +16,7 @@ const serviceCount=serviceData.length;
 const copies=[...serviceData,...serviceData,...serviceData];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const scrollBehavior=()=>reducedMotion.matches?'auto':'smooth';
-services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" loading="lazy" decoding="async"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
+services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" width="1127" height="1536" loading="lazy" decoding="async"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
 
 const dots=document.getElementById('serviceDots');
 dots.innerHTML=serviceData.slice(0,5).map((_,i)=>`<span class="carousel-dot${i===0?' active':''}" data-dot="${i}"></span>`).join('');
@@ -187,3 +187,18 @@ document.querySelectorAll('.gallery-item').forEach(item=>item.addEventListener('
 function closeLB(){if(lb.getAttribute('aria-hidden')==='true')return;lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.removeAttribute('src');document.body.style.overflow='';if(lightboxOpener&&typeof lightboxOpener.focus==='function')lightboxOpener.focus();lightboxOpener=null;}
 lbClose.addEventListener('click',closeLB);lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
 lb.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeLB();return;}if(e.key==='Tab'){const focusable=Array.from(lb.querySelectorAll('button,[href],input,[tabindex]:not([tabindex="-1"])')).filter(el=>!el.disabled);if(!focusable.length){e.preventDefault();lb.focus();return;}const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+
+/* O mapa interativo só é carregado após intenção explícita do visitante. */
+const clinicMap=document.getElementById('clinicMap');
+if(clinicMap){
+  const mapButton=clinicMap.querySelector('.map-load');
+  mapButton?.addEventListener('click',()=>{
+    const frame=document.createElement('iframe');
+    frame.title='Mapa da Nadia Kroetz Odontologia';
+    frame.loading='lazy';
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    frame.allowFullscreen=true;
+    frame.src='https://www.google.com/maps?q=Av.%20Santa%20Rosa%2C%20167%2C%20Crissiumal%2C%20RS&output=embed';
+    clinicMap.replaceChildren(frame);
+  },{once:true});
+}
