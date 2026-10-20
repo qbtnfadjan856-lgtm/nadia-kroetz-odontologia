@@ -13,7 +13,7 @@ const serviceData=[
 ];
 const services=document.getElementById('services');
 const serviceCount=serviceData.length;
-const copies=[...serviceData,...serviceData,...serviceData,...serviceData];
+const copies=[...serviceData,...serviceData,...serviceData];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const scrollBehavior=()=>reducedMotion.matches?'auto':'smooth';
 services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" loading="lazy"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
@@ -54,10 +54,12 @@ function currentIndex(){
   return c ? Number(c.dataset.service)||0 : 0;
 }
 function updateDots(){
-  const idx=((currentIndex()%dots.children.length)+dots.children.length)%dots.children.length;
-  dots.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
-  announceCarousel();
   const center=nearestCard();
+  const idx=center?((Number(center.dataset.service)||0)%dots.children.length):0;
+  dots.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  const heading=center&&center.querySelector('h3');
+  const status=document.getElementById('carouselStatus');
+  if(status&&heading)status.textContent='Tratamento em destaque: '+heading.textContent;
   cards.forEach(c=>c.classList.toggle('is-center',c===center));
 }
 function normalizeLoop(){
@@ -65,7 +67,7 @@ function normalizeLoop(){
   if(!w)return;
   // Reposiciona somente depois da animação, nunca no meio do scroll.
   if(services.scrollLeft < w*.55) services.scrollLeft += w;
-  else if(services.scrollLeft > w*2.45) services.scrollLeft -= w;
+  else if(services.scrollLeft > w*1.45) services.scrollLeft -= w;
 }
 function scheduleSettle(){
   clearTimeout(settleTimer);
@@ -80,8 +82,14 @@ requestAnimationFrame(()=>{
   centerCard(cards[serviceCount],'auto');
   updateDots();
 });
+let scrollFrame=0;
 services.addEventListener('scroll',()=>{
-  updateDots();
+  if(!scrollFrame){
+    scrollFrame=requestAnimationFrame(()=>{
+      scrollFrame=0;
+      updateDots();
+    });
+  }
   scheduleSettle();
 },{passive:true});
 
