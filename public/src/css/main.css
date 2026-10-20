@@ -1285,3 +1285,11 @@ section[id]{scroll-margin-top:96px}
 @media screen and (max-width: 380px) {
   .hero-meta { column-gap: 12px !important; }
 }
+
+
+/* Centraliza o conjunto dos indicadores da hero. */
+.hero-meta {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center !important;
+}
