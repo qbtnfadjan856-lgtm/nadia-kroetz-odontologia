@@ -997,3 +997,122 @@ section[id]{scroll-margin-top:96px}
   .book-option strong{font-size:.76rem}
   .book-option small{font-size:.63rem}
 }
+
+
+/* Correção definitiva para telas pequenas; desktop permanece sem alterações. */
+@media screen and (max-width: 700px) {
+  /* Hero: imagem imóvel e títulos com maior presença. */
+  .hero-person,
+  .hero-person img,
+  .hero-person::before {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .hero-person img { object-position: center bottom; }
+  .hero-copy > .eyebrow {
+    font-size: clamp(.78rem, 3.1vw, .9rem) !important;
+    letter-spacing: .13em !important;
+    line-height: 1.55;
+  }
+  .hero-title {
+    font-size: clamp(3.25rem, 15.8vw, 4.55rem) !important;
+    line-height: .96 !important;
+    letter-spacing: -.06em !important;
+  }
+
+  /* Cards compactos e centralizados: os dois cards vizinhos ficam aparentes. */
+  .treatment-track {
+    --card-w: min(58vw, 245px) !important;
+    display: flex !important;
+    gap: 10px !important;
+    padding-left: calc((100% - var(--card-w)) / 2) !important;
+    padding-right: calc((100% - var(--card-w)) / 2) !important;
+    scroll-padding-left: calc((100% - var(--card-w)) / 2) !important;
+    scroll-padding-right: calc((100% - var(--card-w)) / 2) !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth;
+    touch-action: pan-x pan-y;
+  }
+  .treatment-track > .treatment {
+    flex: 0 0 var(--card-w) !important;
+    width: var(--card-w) !important;
+    min-width: 0 !important;
+    height: 385px !important;
+    scroll-snap-align: center !important;
+    transform: scale(.96);
+    opacity: .84;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .treatment-track > .treatment.is-center {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .treatment-track .treatment-content {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  .treatment-track .treatment h3 {
+    font-size: 1.05rem !important;
+    line-height: 1.12 !important;
+  }
+  .treatment-track .treatment p {
+    font-size: .72rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Dez serviços: duas colunas por cinco linhas, apenas no mobile. */
+  #bookingOptions.booking-options {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row;
+    align-items: stretch;
+    gap: 8px !important;
+  }
+  #bookingOptions .book-option {
+    min-width: 0;
+  }
+  #bookingOptions .book-option label {
+    display: flex;
+    height: 100%;
+    min-height: 112px !important;
+    padding: 10px 8px !important;
+    gap: 6px !important;
+    align-items: flex-start;
+    border-radius: 14px;
+  }
+  #bookingOptions .book-option label > span:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  #bookingOptions .book-option strong {
+    font-size: clamp(.76rem, 3.1vw, .86rem) !important;
+    line-height: 1.28 !important;
+    overflow-wrap: anywhere;
+  }
+  #bookingOptions .book-option small {
+    font-size: clamp(.63rem, 2.55vw, .7rem) !important;
+    line-height: 1.3 !important;
+  }
+  #bookingOptions .book-radio {
+    flex: 0 0 17px !important;
+    width: 17px !important;
+    height: 17px !important;
+    margin-top: 2px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .treatment-track { --card-w: 60vw !important; }
+  .treatment-track > .treatment { height: 365px !important; }
+  #bookingOptions .book-option label { min-height: 116px !important; padding: 9px 7px !important; }
+  #bookingOptions .book-option strong { font-size: .75rem !important; }
+  #bookingOptions .book-option small { font-size: .62rem !important; }
+  .hero-title { font-size: clamp(3rem, 15.3vw, 3.5rem) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .treatment-track { scroll-behavior: auto !important; }
+  .treatment-track > .treatment { transition: none !important; }
+}
