@@ -953,3 +953,47 @@ section[id]{scroll-margin-top:96px}
   .book-option strong{font-size:.77rem}
   .book-option small{font-size:.66rem}
 }
+
+
+/* Mobile: cards menores com vizinhos visíveis, serviços em 2 colunas e hero estática. */
+@media(max-width:700px){
+  .hero-copy .eyebrow{font-size:.76rem;letter-spacing:.15em;line-height:1.65}
+  .hero-title{font-size:clamp(3.15rem,15.8vw,4.65rem);line-height:.94;letter-spacing:-.06em}
+  .hero-person img{animation:none!important;transform:none!important;transition:none!important}
+  .hero-person{transform:none!important}
+  .hero-person:before{animation:none!important;transform:none!important}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+  .book-option label{min-height:112px;height:100%;padding:10px 9px;gap:7px;align-items:flex-start}
+  .book-option label>span:first-child{min-width:0}
+  .book-option strong{font-size:.84rem;line-height:1.28;overflow-wrap:anywhere}
+  .book-option small{font-size:.69rem;line-height:1.3}
+}
+@media(max-width:560px){
+  .hero-copy .eyebrow{font-size:.72rem;letter-spacing:.13em}
+  .hero-title{font-size:clamp(3rem,15.5vw,4.25rem);line-height:.95}
+  .treatment-track{--card-w:min(68vw,270px)!important;gap:10px!important;padding-inline:calc((100% - var(--card-w))/2)!important;scroll-padding-inline:calc((100% - var(--card-w))/2)!important;overflow-y:hidden}
+  .treatment-track .treatment{flex:0 0 var(--card-w)!important;width:var(--card-w)!important;min-width:0;height:390px!important;transform:scale(.96)}
+  .treatment-track .treatment.is-center{transform:scale(1)}
+  .treatment-track .treatment:not(.is-center){opacity:.8}
+  .treatment-media{height:58%!important;inset:0 0 auto!important}
+  .treatment-media img{height:100%!important;object-fit:cover;object-position:center top}
+  .treatment-media:after{background:linear-gradient(180deg,rgba(7,17,31,.03) 15%,rgba(7,17,31,.22) 65%,rgba(7,17,31,.75) 100%)!important}
+  .treatment-content{left:13px!important;right:13px!important;bottom:13px!important;padding:15px 0 0!important;background:linear-gradient(180deg,rgba(7,17,31,0),rgba(7,17,31,.98) 22%)!important}
+  .treatment-no{font-size:.6rem;letter-spacing:.13em}
+  .treatment h3{font-size:1.08rem!important;line-height:1.12;margin:7px 0 7px}
+  .treatment p{font-size:.72rem;line-height:1.35;margin-bottom:10px}
+  .treatment .btn{min-height:40px;padding:9px 15px;font-size:.76rem}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+  .book-option label{min-height:112px;padding:10px 8px;gap:6px;border-radius:13px}
+  .book-option strong{font-size:.8rem}
+  .book-option small{font-size:.66rem;line-height:1.28}
+  .book-radio{width:17px;height:17px;flex-basis:17px}
+}
+@media(max-width:380px){
+  .hero-title{font-size:clamp(2.8rem,15vw,3.45rem)}
+  .treatment-track{--card-w:70vw!important}
+  .treatment-track .treatment{height:370px!important}
+  .book-option label{min-height:118px;padding:9px 7px}
+  .book-option strong{font-size:.76rem}
+  .book-option small{font-size:.63rem}
+}
