@@ -1315,3 +1315,43 @@ section[id]{scroll-margin-top:96px}
   min-width: 0 !important;
   text-align: center !important;
 }
+
+
+/* Refinamento dos indicadores da hero: mais legíveis, sem alterar o layout já aprovado. */
+.hero-copy .hero-meta {
+  gap: clamp(20px, 4.5vw, 34px) !important;
+}
+.hero-copy .hero-meta > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+.hero-copy .hero-meta strong {
+  font-size: clamp(1.2rem, 2.2vw, 1.42rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.025em !important;
+  white-space: nowrap !important;
+}
+.hero-copy .hero-meta span {
+  font-size: clamp(.82rem, 1.25vw, .9rem) !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+}
+@media screen and (max-width: 700px) {
+  .hero-copy .hero-meta {
+    gap: clamp(18px, 5vw, 28px) !important;
+    margin-top: 28px !important;
+  }
+  .hero-copy .hero-meta strong {
+    font-size: clamp(1.12rem, 4.8vw, 1.32rem) !important;
+  }
+  .hero-copy .hero-meta span {
+    font-size: clamp(.78rem, 3.2vw, .86rem) !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .hero-copy .hero-meta { gap: 14px !important; }
+  .hero-copy .hero-meta strong { font-size: 1.05rem !important; }
+  .hero-copy .hero-meta span { font-size: .74rem !important; }
+}
