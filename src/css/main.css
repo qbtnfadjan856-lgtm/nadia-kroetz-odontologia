@@ -845,3 +845,73 @@ section[id]{scroll-margin-top:96px}
 /* Performance: manter o espaço do mapa sem carregar scripts externos no primeiro acesso. */
 .map{position:relative;min-height:410px;background:radial-gradient(ellipse at 22% 25%,rgba(83,132,190,.18),transparent 45%),linear-gradient(135deg,#10233a,#091524)}.map-load{width:100%;min-height:inherit;height:100%;border:0;border-radius:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:28px;text-align:center;color:#fff;background:transparent;cursor:pointer}.map-load-title{font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700}.map-load-detail{color:#b9c8d9;font-size:.9rem}.map-load-action{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:12px 18px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-size:.9rem;font-weight:700}.map-load:focus-visible{outline:3px solid #7eaeff;outline-offset:-5px}.map iframe{display:block;width:100%;height:100%;min-height:410px;border:0;filter:saturate(.8)}.carousel-dot{transition:background-color .2s;}
 @media(max-width:560px){.map,.map iframe{min-height:330px}.map-load{min-height:330px}}
+
+
+/* Ajustes finos solicitados: hero, carrossel e formulário de agendamento. */
+.hero-person img{width:min(660px,100%);height:100%;object-fit:contain;object-position:center bottom}
+.hero-meta{gap:30px}
+.hero-meta strong{font-size:1.08rem}
+.hero-meta span{font-size:.8rem}
+.hero-actions .btn{padding:15px 22px;font-size:.82rem}
+.treatment-track{--card-w:320px;gap:16px;padding-inline:calc((100% - var(--card-w))/2);scroll-padding-inline:calc((100% - var(--card-w))/2);scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.treatment-track .treatment{flex:0 0 var(--card-w);scroll-snap-align:center;transition:transform .35s ease,opacity .35s ease}
+.treatment-track .treatment:not(.is-center){transform:scale(.94);opacity:.82}
+.treatment-track .treatment.is-center{transform:scale(1);opacity:1}
+.booking-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.book-option label{min-height:78px;padding:12px 13px;gap:10px}
+.book-option strong{font-size:.96rem}
+.book-option small{font-size:.78rem;line-height:1.3}
+.choice-block h4{font-size:1.04rem}
+.choice label{font-size:.86rem}
+.booking-steps li{font-size:.92rem}
+@media(min-width:901px){
+  .hero-person{height:730px}
+  .hero-person img{width:min(680px,100%)}
+  .hero-actions .btn{padding:16px 23px;font-size:.84rem}
+  .hero-meta{gap:34px}
+  .hero-meta strong{font-size:1.18rem}
+  .hero-meta span{font-size:.86rem}
+  .treatment-track{--card-w:320px;gap:18px}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+}
+@media(max-width:900px){
+  .hero-title{font-size:clamp(3.1rem,14.2vw,5.35rem)}
+  .hero-person img{width:100%;object-fit:contain}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .book-option label{min-height:76px;padding:11px 10px}
+  .book-option strong{font-size:.88rem}
+  .book-option small{font-size:.73rem}
+  .choice-block h4{font-size:.98rem}
+  .choice label{font-size:.84rem;padding:10px 12px}
+}
+@media(max-width:560px){
+  .hero-title{font-size:clamp(2.75rem,13.4vw,4rem);line-height:.98}
+  .hero-actions .btn{min-height:50px;padding:14px 17px;font-size:.81rem}
+  .hero-meta{gap:15px 19px;margin-top:24px}
+  .hero-meta strong{font-size:.98rem}
+  .hero-meta span{font-size:.75rem}
+  .hero-person{height:clamp(350px,108vw,445px)}
+  .treatment-track{--card-w:calc(100vw - 150px);gap:10px;padding-inline:calc((100% - var(--card-w))/2);scroll-padding-inline:calc((100% - var(--card-w))/2)}
+  .treatment-track .treatment{height:420px}
+  .treatment-content{left:16px;right:16px;bottom:18px}
+  .treatment h3{font-size:1.25rem}
+  .treatment p{font-size:.8rem;margin-bottom:13px}
+  .treatment .btn{padding:10px 14px}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .book-option label{min-height:88px;padding:10px 9px;gap:7px;border-radius:13px}
+  .book-option strong{font-size:.82rem;line-height:1.25}
+  .book-option small{font-size:.7rem;line-height:1.25}
+  .book-radio{width:18px;height:18px;flex-basis:18px}
+  .choice-block h4{font-size:.96rem}
+  .choice label{font-size:.84rem;padding:10px 11px}
+  .booking-steps li{font-size:.78rem}
+}
+@media(max-width:360px){
+  .treatment-track{--card-w:calc(100vw - 130px)}
+  .book-option label{padding:9px 7px}
+  .book-option strong{font-size:.77rem}
+  .book-option small{font-size:.66rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .treatment-track .treatment{transition:none}
+}
