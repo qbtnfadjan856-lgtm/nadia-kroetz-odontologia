@@ -188,17 +188,4 @@ function closeLB(){if(lb.getAttribute('aria-hidden')==='true')return;lb.classLis
 lbClose.addEventListener('click',closeLB);lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
 lb.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeLB();return;}if(e.key==='Tab'){const focusable=Array.from(lb.querySelectorAll('button,[href],input,[tabindex]:not([tabindex="-1"])')).filter(el=>!el.disabled);if(!focusable.length){e.preventDefault();lb.focus();return;}const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 
-/* O mapa interativo só é carregado após intenção explícita do visitante. */
-const clinicMap=document.getElementById('clinicMap');
-if(clinicMap){
-  const mapButton=clinicMap.querySelector('.map-load');
-  mapButton?.addEventListener('click',()=>{
-    const frame=document.createElement('iframe');
-    frame.title='Mapa da Nadia Kroetz Odontologia';
-    frame.loading='lazy';
-    frame.referrerPolicy='strict-origin-when-cross-origin';
-    frame.allowFullscreen=true;
-    frame.src='https://www.google.com/maps?q=Av.%20Santa%20Rosa%2C%20167%2C%20Crissiumal%2C%20RS&output=embed';
-    clinicMap.replaceChildren(frame);
-  },{once:true});
-}
+/* O mapa do Google é carregado automaticamente pelo iframe presente no HTML. */
