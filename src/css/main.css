@@ -1393,3 +1393,18 @@ section[id]{scroll-margin-top:96px}
   .hero-meta{max-width:82%;gap:10px 12px}
   .hero-person{right:-12%;width:62%;top:78px}
 }
+
+
+/* Mobile: foto no topo da própria hero, antes dos textos */
+@media (max-width:700px){
+  .hero{padding-top:14px!important;min-height:0!important}
+  .hero-grid{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;min-height:0!important}
+  .hero-person{position:relative!important;inset:auto!important;order:-1!important;display:flex!important;width:100%!important;height:clamp(250px,78vw,370px)!important;min-height:0!important;margin:0 0 20px!important;align-items:flex-end!important;justify-content:center!important;overflow:hidden!important;pointer-events:none}
+  .hero-person:before{width:min(78vw,320px)!important;height:min(78vw,320px)!important;right:50%!important;transform:translateX(50%)!important;bottom:0!important}
+  .hero-person .hero-picture{width:100%!important;height:100%!important;display:flex!important;align-items:flex-end!important;justify-content:center!important}
+  .hero-person .hero-picture img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;object-position:center bottom!important}
+  .hero-copy{order:2!important;width:100%!important;max-width:none!important;padding:0 0 28px!important}
+  .hero-title{max-width:none!important}
+  .hero-copy>p:not(.hero-reassurance){max-width:100%!important}
+  .hero-actions,.hero-meta{max-width:100%!important}
+}
