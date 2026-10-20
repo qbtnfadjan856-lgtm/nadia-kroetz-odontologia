@@ -1176,3 +1176,54 @@ section[id]{scroll-margin-top:96px}
     font-size: .69rem !important;
   }
 }
+
+
+/* Refinamento visual dos cards e da hero em telas pequenas. */
+@media screen and (max-width: 700px) {
+  /* Evita a faixa retangular no conteúdo: o degradê fica aplicado à imagem. */
+  .treatment-track .treatment-media {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+  }
+  .treatment-track .treatment-media:after {
+    background: linear-gradient(
+      to top,
+      rgba(7,17,31,.92) 0%,
+      rgba(7,17,31,.48) 28%,
+      rgba(7,17,31,.12) 48%,
+      rgba(7,17,31,0) 66%
+    ) !important;
+  }
+  .treatment-track .treatment-content {
+    background: none !important;
+    padding: 0 !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: 15px !important;
+  }
+  .treatment-track .treatment-no {
+    font-size: .72rem !important;
+    letter-spacing: .14em !important;
+  }
+  .treatment-track .treatment h3 {
+    font-size: clamp(1.22rem, 5.2vw, 1.48rem) !important;
+    line-height: 1.12 !important;
+    margin: 8px 0 !important;
+  }
+  .treatment-track .treatment p {
+    font-size: clamp(.84rem, 3.5vw, .96rem) !important;
+    line-height: 1.42 !important;
+    margin-bottom: 12px !important;
+    max-width: none !important;
+  }
+  .treatment-track .treatment .btn {
+    min-height: 46px !important;
+    padding: 11px 19px !important;
+    font-size: .9rem !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  .treatment-track .treatment h3 { font-size: 1.18rem !important; }
+  .treatment-track .treatment p { font-size: .82rem !important; }
+}
