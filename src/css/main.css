@@ -1227,3 +1227,38 @@ section[id]{scroll-margin-top:96px}
   .treatment-track .treatment h3 { font-size: 1.18rem !important; }
   .treatment-track .treatment p { font-size: .82rem !important; }
 }
+
+
+/* Ajustes finais da hero e do degradê dos cards. */
+@media screen and (max-width: 700px) {
+  .treatment-track .treatment-media:after {
+    background: linear-gradient(
+      to top,
+      rgba(7,17,31,.97) 0%,
+      rgba(7,17,31,.78) 27%,
+      rgba(7,17,31,.34) 51%,
+      rgba(7,17,31,.08) 68%,
+      rgba(7,17,31,0) 78%
+    ) !important;
+  }
+}
+.hero-meta {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px 24px !important;
+  max-width: 460px;
+}
+.hero-meta > div { min-width: 0; }
+.hero-meta strong {
+  font-size: clamp(1.05rem, 1.7vw, 1.18rem) !important;
+  line-height: 1.2;
+}
+.hero-meta span {
+  font-size: .78rem !important;
+  line-height: 1.35;
+}
+@media screen and (max-width: 380px) {
+  .hero-meta { gap: 14px 12px !important; }
+  .hero-meta strong { font-size: 1rem !important; }
+  .hero-meta span { font-size: .72rem !important; }
+}
