@@ -16,7 +16,7 @@ const serviceCount=serviceData.length;
 const copies=[...serviceData,...serviceData,...serviceData];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const scrollBehavior=()=>reducedMotion.matches?'auto':'smooth';
-services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" loading="lazy"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
+services.innerHTML=copies.map(([img,no,title,desc,msg],i)=>`<article class="treatment" data-service="${i%serviceCount}"><div class="treatment-media"><img src="${img}" alt="${title}" loading="lazy" decoding="async"></div><div class="treatment-content"><div class="treatment-no">${no} / TRATAMENTO</div><h3>${title}</h3><p>${desc}</p><a class="btn treatment-book-btn" href="#agendar" data-service="${i%serviceCount}">Agendar</a></div></article>`).join('');
 
 const dots=document.getElementById('serviceDots');
 dots.innerHTML=serviceData.slice(0,5).map((_,i)=>`<span class="carousel-dot${i===0?' active':''}" data-dot="${i}"></span>`).join('');
