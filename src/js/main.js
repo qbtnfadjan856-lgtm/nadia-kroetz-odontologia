@@ -151,6 +151,26 @@ function setMobileMenu(open){mobile.hidden=!open;mobile.classList.toggle('open',
 menuBtn.addEventListener('click',()=>setMobileMenu(mobile.hidden));
 mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMobileMenu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobile.hidden){setMobileMenu(false);menuBtn.focus();}});
+
+/* Scroll reveal progressivo: conteúdo visível sem depender de animação para existir. */
+if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+  const revealTargets = document.querySelectorAll('.intro, .section-top, .booking-shell, .about-grid, .location-grid, .faq-shell, .panel, .treatment');
+  revealTargets.forEach((el, index) => {
+    el.classList.add('scroll-reveal');
+    if (el.classList.contains('treatment')) el.style.setProperty('--reveal-delay', (index % 3) * 70 + 'ms');
+  });
+  document.documentElement.classList.add('motion-ready');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+  revealTargets.forEach(el => revealObserver.observe(el));
+}
+
 document.getElementById('waFloat').onclick=()=>window.open(WA,'_blank','noopener,noreferrer');
 
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),lbClose=document.getElementById('closeLightbox');
