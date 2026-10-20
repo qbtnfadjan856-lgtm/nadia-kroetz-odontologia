@@ -1293,3 +1293,25 @@ section[id]{scroll-margin-top:96px}
   margin-right: auto !important;
   justify-content: center !important;
 }
+
+
+/* Centralização real do conjunto: os dois indicadores ficam lado a lado no centro. */
+.hero-copy .hero-meta {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 30px auto 0 !important;
+  padding: 0 !important;
+  gap: clamp(16px, 4vw, 30px) !important;
+  box-sizing: border-box !important;
+}
+.hero-copy .hero-meta > div {
+  flex: 0 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  text-align: center !important;
+}
