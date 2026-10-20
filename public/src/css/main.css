@@ -642,3 +642,39 @@ button:disabled,input:disabled{cursor:not-allowed;opacity:.62}
 
 /* Reforço explícito: o campo de nome mantém foco visível mesmo com estilos locais. */
 .name-field input:focus-visible{outline:3px solid #75a8ff;outline-offset:4px;box-shadow:0 0 0 2px #07111f}
+
+
+/* Conversão + motion: movimentos discretos, respeitando preferência de acessibilidade. */
+.nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:42px;padding:0 18px;border-radius:999px;background:#fff;color:#07111f;font:700 .78rem 'Space Grotesk',sans-serif;white-space:nowrap;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.nav-cta:hover{transform:translateY(-2px);background:#edf4ff;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.nav-cta span,.hero-actions .btn span{display:inline-block;transition:transform .22s ease}
+.nav-cta:hover span,.hero-actions .btn-primary:hover span{transform:translateX(3px)}
+.hero-copy .eyebrow{animation:heroEnter .65s .05s both}
+.hero-title{animation:heroEnter .8s .12s both}
+.hero-copy>p:not(.hero-reassurance){animation:heroEnter .8s .22s both}
+.hero-actions{animation:heroEnter .8s .32s both}
+.hero-meta{animation:heroEnter .8s .42s both}
+.hero-person img{animation:portraitFloat 12s ease-in-out infinite alternate;transform-origin:center bottom;will-change:transform}
+.hero-person:before{animation:heroGlow 8s ease-in-out infinite alternate}
+.hero-reassurance{font-size:.78rem!important;line-height:1.45;color:#9fb2ca!important;margin:13px 0 0!important}
+@keyframes heroEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes portraitFloat{from{transform:scale(1) translateY(0)}to{transform:scale(1.025) translateY(-5px)}}
+@keyframes heroGlow{from{opacity:.55;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
+.motion-ready .scroll-reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
+.motion-ready .treatment.scroll-reveal{transition-delay:var(--reveal-delay,0ms)}
+.faq-section{background:#f3f7fb}
+.faq-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,88px);align-items:start}
+.faq-intro .section-title{font-size:clamp(2.25rem,4.3vw,3.8rem);line-height:1}
+.faq-intro>p{max-width:400px;color:var(--muted);margin:20px 0 24px}
+.faq-list{border-top:1px solid #d8e1eb}
+.faq-list details{border-bottom:1px solid #d8e1eb;padding:0}
+.faq-list summary{position:relative;list-style:none;cursor:pointer;padding:22px 38px 22px 0;font:700 1rem 'Manrope',sans-serif;color:var(--ink)}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:"+";position:absolute;right:4px;top:17px;font:400 1.5rem 'DM Sans',sans-serif;color:var(--blue);transition:transform .2s ease}
+.faq-list details[open] summary:after{transform:rotate(45deg)}
+.faq-list details p{max-width:620px;color:var(--muted);font-size:.93rem;margin:-4px 30px 22px 0}
+.faq-list summary:focus-visible{outline:3px solid #2167d7;outline-offset:4px;border-radius:4px}
+@media(max-width:900px){.nav-cta{display:none}.faq-shell{grid-template-columns:1fr;gap:30px}.faq-intro .section-title{max-width:620px}}
+@media(max-width:560px){.hero-reassurance{max-width:300px}.faq-list summary{font-size:.95rem;padding:19px 34px 19px 0}.faq-list details p{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){.hero-copy .eyebrow,.hero-title,.hero-copy>p:not(.hero-reassurance),.hero-actions,.hero-meta{animation:none!important;opacity:1!important;transform:none!important}.hero-person img,.hero-person:before{animation:none!important;will-change:auto}.nav-cta,.nav-cta span,.hero-actions .btn span{transition:none!important}.motion-ready .scroll-reveal,.motion-ready .scroll-reveal.is-visible{opacity:1;transform:none;transition:none}}
