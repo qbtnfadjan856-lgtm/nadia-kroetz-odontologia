@@ -915,3 +915,41 @@ section[id]{scroll-margin-top:96px}
 @media(prefers-reduced-motion:reduce){
   .treatment-track .treatment{transition:none}
 }
+
+
+/* Ajustes finais baseados nas capturas mobile: laterais do carrossel e agendamento em duas colunas. */
+.hero-person:after{content:none!important;display:none!important}
+.treatment-track{--card-w:290px;gap:14px;padding-inline:calc((100% - var(--card-w))/2);scroll-padding-inline:calc((100% - var(--card-w))/2);overflow-y:hidden}
+.treatment-track .treatment{flex:0 0 var(--card-w);width:var(--card-w)}
+@media(min-width:901px){
+  .treatment-track{--card-w:300px;gap:16px}
+}
+@media(max-width:900px){
+  .treatment-track{--card-w:calc(100vw - 210px);gap:10px;padding-inline:calc((100% - var(--card-w))/2);scroll-padding-inline:calc((100% - var(--card-w))/2)}
+  .treatment-track .treatment{flex-basis:var(--card-w);width:var(--card-w);height:clamp(410px,122vw,455px)}
+}
+@media(max-width:700px){
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch;gap:9px}
+  .book-option label{height:100%;min-height:126px;padding:12px 11px;gap:8px;align-items:flex-start}
+  .book-option strong{font-size:.88rem;line-height:1.3}
+  .book-option small{font-size:.73rem;line-height:1.35}
+  .book-radio{flex:0 0 19px;width:19px;height:19px;margin-top:1px}
+}
+@media(max-width:560px){
+  .treatment-track{--card-w:calc(100vw - 190px);gap:9px}
+  .treatment-track .treatment{height:420px}
+  .treatment-content{left:14px;right:14px;bottom:15px;padding-top:48px}
+  .treatment h3{font-size:clamp(1.08rem,4.9vw,1.28rem);line-height:1.15}
+  .treatment p{font-size:.74rem;line-height:1.4}
+  .treatment .btn{min-width:0;min-height:43px;padding:10px 13px;font-size:.8rem}
+  .booking-options{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+  .book-option label{min-height:128px;padding:11px 9px;gap:6px;border-radius:14px}
+  .book-option strong{font-size:.82rem;overflow-wrap:anywhere}
+  .book-option small{font-size:.69rem;line-height:1.32}
+}
+@media(max-width:380px){
+  .treatment-track{--card-w:calc(100vw - 170px)}
+  .book-option label{padding:10px 7px;min-height:135px}
+  .book-option strong{font-size:.77rem}
+  .book-option small{font-size:.66rem}
+}
