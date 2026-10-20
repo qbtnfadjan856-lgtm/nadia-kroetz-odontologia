@@ -1116,3 +1116,63 @@ section[id]{scroll-margin-top:96px}
   .treatment-track { scroll-behavior: auto !important; }
   .treatment-track > .treatment { transition: none !important; }
 }
+
+
+/* Ajuste fino mobile: hero mais equilibrada, cards maiores e serviços legíveis. */
+@media screen and (max-width: 700px) {
+  .hero-copy > .eyebrow {
+    font-size: clamp(.76rem, 3vw, .86rem) !important;
+  }
+  .hero-title {
+    font-size: clamp(2.85rem, 13.2vw, 3.9rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.055em !important;
+  }
+  .treatment-track {
+    --card-w: min(68vw, 280px) !important;
+    gap: 10px !important;
+  }
+  .treatment-track > .treatment {
+    height: 410px !important;
+  }
+  #bookingOptions .book-option label {
+    min-height: 124px !important;
+    padding: 11px 9px !important;
+    gap: 8px !important;
+  }
+  #bookingOptions .book-option strong {
+    font-size: clamp(.88rem, 3.5vw, .98rem) !important;
+    line-height: 1.3 !important;
+    overflow-wrap: break-word !important;
+  }
+  #bookingOptions .book-option small {
+    font-size: clamp(.71rem, 2.8vw, .78rem) !important;
+    line-height: 1.35 !important;
+  }
+  #bookingOptions .book-radio {
+    flex-basis: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(2.65rem, 13.3vw, 3.1rem) !important;
+  }
+  .treatment-track {
+    --card-w: 72vw !important;
+  }
+  .treatment-track > .treatment {
+    height: 390px !important;
+  }
+  #bookingOptions .book-option label {
+    min-height: 128px !important;
+    padding: 10px 7px !important;
+  }
+  #bookingOptions .book-option strong {
+    font-size: .86rem !important;
+  }
+  #bookingOptions .book-option small {
+    font-size: .69rem !important;
+  }
+}
