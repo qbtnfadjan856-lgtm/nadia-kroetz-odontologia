@@ -1550,3 +1550,59 @@ section[id]{scroll-margin-top:96px}
   .hero-title{font-size:clamp(2.1rem,9.2vw,2.55rem)!important}
   .hero-copy>p:not(.hero-reassurance){font-size:.86rem!important}
 }
+
+
+/* Legibilidade mobile da hero e indicadores profissionais empilhados */
+@media (max-width:700px){
+  .hero:before{
+    background:
+      linear-gradient(90deg,rgba(5,20,43,.94) 0%,rgba(5,20,43,.86) 48%,rgba(5,20,43,.55) 72%,rgba(5,20,43,.24) 100%),
+      linear-gradient(180deg,rgba(5,20,43,.18) 0%,rgba(5,20,43,.08) 38%,rgba(5,20,43,.5) 100%) !important;
+  }
+  .hero-copy .eyebrow,
+  .hero-title,
+  .hero-copy>p:not(.hero-reassurance){
+    text-shadow:0 2px 12px rgba(0,0,0,.28) !important;
+  }
+  .hero-copy>p:not(.hero-reassurance){
+    color:#f4f7fc !important;
+    max-width:94% !important;
+  }
+  .hero-copy .hero-meta{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    width:max-content !important;
+    max-width:100% !important;
+    margin:22px 0 0 !important;
+    padding:12px 16px !important;
+    box-sizing:border-box !important;
+    background:rgba(4,17,38,.82) !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    border-left:3px solid #7eaeff !important;
+    border-radius:10px !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.16) !important;
+  }
+  .hero-copy .hero-meta>div{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:2px !important;
+    width:auto !important;
+    text-align:left !important;
+  }
+  .hero-copy .hero-meta strong{
+    color:#fff !important;
+    font-size:1.05rem !important;
+    line-height:1.2 !important;
+    white-space:normal !important;
+  }
+  .hero-copy .hero-meta span{
+    color:#e0e9f7 !important;
+    font-size:.82rem !important;
+    line-height:1.35 !important;
+    text-align:left !important;
+  }
+}
