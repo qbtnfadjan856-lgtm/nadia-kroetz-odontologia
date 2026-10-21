@@ -1725,3 +1725,12 @@ section[id]{scroll-margin-top:96px}
     margin-top:58px!important;
   }
 }
+
+
+/* Posiciona as credenciais ainda mais abaixo na hero em celulares */
+@media(max-width:700px){
+  .hero-copy .hero-meta{margin-top:92px!important}
+}
+@media(max-width:390px){
+  .hero-copy .hero-meta{margin-top:78px!important}
+}
