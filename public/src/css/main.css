@@ -1734,3 +1734,28 @@ section[id]{scroll-margin-top:96px}
 @media(max-width:390px){
   .hero-copy .hero-meta{margin-top:78px!important}
 }
+
+
+/* Localização: fachada real e mapa lado a lado no desktop, empilhados no celular. */
+.location .location-copy{margin-bottom:24px}
+.location .location-head{align-items:flex-end;gap:24px;margin-bottom:0}
+.location .location-head p{max-width:490px;color:#b9c8d9;font-size:1rem;line-height:1.65}
+.location .location-actions{margin-top:22px;margin-bottom:0}
+.location .location-media-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}
+.location .location-facade{margin:0;min-width:0;min-height:410px;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:26px;background:#0c1a2b}
+.location .location-facade img{display:block;width:100%;height:100%;min-height:410px;max-height:540px;object-fit:cover;object-position:center 48%}
+.location .location-media-grid .map{min-width:0;min-height:410px;height:100%;border-radius:26px;overflow:hidden}
+.location .location-media-grid .map iframe{display:block;width:100%;height:100%;min-height:410px;border:0}
+@media(max-width:700px){
+  .location .location-copy{margin-bottom:22px}
+  .location .location-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .location .location-head h2{font-size:clamp(2.6rem,11vw,3.5rem);line-height:.98}
+  .location .location-head p{max-width:100%;font-size:.95rem;line-height:1.6}
+  .location .location-actions{width:100%;gap:10px;margin-top:20px}
+  .location .location-actions .btn{flex:1 1 140px;min-height:50px}
+  .location .location-media-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .location .location-facade{min-height:0;aspect-ratio:4/3;border-radius:22px}
+  .location .location-facade img{height:100%;min-height:0;max-height:none;object-fit:cover;object-position:center 48%}
+  .location .location-media-grid .map{height:340px;min-height:340px;border-radius:22px}
+  .location .location-media-grid .map iframe{height:340px;min-height:340px}
+}
