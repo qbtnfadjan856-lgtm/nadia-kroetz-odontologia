@@ -1701,3 +1701,27 @@ section[id]{scroll-margin-top:96px}
   .hero-copy>p:not(.hero-reassurance){font-size:.86rem!important;line-height:1.43!important;max-width:92%!important}
   .hero-actions .btn{min-height:51px!important;padding:13px 17px!important;font-size:.88rem!important}
 }
+
+
+/* Último ajuste mobile: botão secundário mais compacto e credenciais mais abaixo */
+@media(max-width:700px){
+  .hero-actions .btn-outline{
+    min-height:47px!important;
+    padding:11px 16px!important;
+    font-size:clamp(.84rem,3.3vw,.92rem)!important;
+    line-height:1.15!important;
+  }
+  .hero-copy .hero-meta{
+    margin-top:68px!important;
+  }
+}
+@media(max-width:390px){
+  .hero-actions .btn-outline{
+    min-height:45px!important;
+    padding:10px 15px!important;
+    font-size:.82rem!important;
+  }
+  .hero-copy .hero-meta{
+    margin-top:58px!important;
+  }
+}
