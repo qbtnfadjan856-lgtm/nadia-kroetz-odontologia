@@ -2042,3 +2042,241 @@ section[id]{scroll-margin-top:96px}
   .hero-copy { width: 72% !important; }
   .hero-title { font-size: clamp(2.4rem, 10vw, 2.8rem) !important; }
 }
+
+
+/* AJUSTE DEFINITIVO DE IMAGENS — aplicar o mesmo preenchimento em todos os dispositivos. */
+img {
+  max-width: 100%;
+}
+.hero-person,
+.hero-person .hero-picture,
+.team-photo,
+.treatment-media,
+.location .location-facade,
+.gallery-item,
+.gallery-item img {
+  overflow: hidden !important;
+}
+.hero-person .hero-picture,
+.hero-person .hero-picture img,
+.team-photo img,
+.treatment-media img,
+.location .location-facade img,
+.gallery-item img,
+.about-grid img,
+.intro img,
+.location img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Hero desktop: imagem ocupa integralmente a coluna, sem deformação. */
+@media (min-width: 701px) {
+  .hero-person {
+    height: 680px !important;
+    min-height: 0 !important;
+  }
+  .hero-person .hero-picture,
+  .hero-person .hero-picture img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .hero-person .hero-picture img {
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+  .team-photo {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+  }
+  .team-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    object-fit: cover !important;
+    object-position: center 35% !important;
+  }
+}
+
+/* Hero mobile: texto por cima da imagem, no lado esquerdo, como na referência. */
+@media (max-width: 700px) {
+  .hero {
+    position: relative !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: #07111f !important;
+  }
+  .hero-grid {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: 820px !important;
+    padding: 0 22px !important;
+    overflow: hidden !important;
+  }
+  .hero-person {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+  .hero:after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    background: linear-gradient(90deg, rgba(5,18,48,.94) 0%, rgba(5,18,48,.83) 43%, rgba(5,18,48,.12) 100%) !important;
+  }
+  .hero-grid:before,
+  .hero-grid:after,
+  .hero-person:before,
+  .hero-person:after {
+    display: none !important;
+    content: none !important;
+  }
+  .hero-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 72% !important;
+    max-width: 440px !important;
+    min-height: 820px !important;
+    padding: 56px 0 30px !important;
+    margin: 0 !important;
+  }
+  .hero-copy .eyebrow {
+    max-width: 100% !important;
+    margin: 0 0 18px !important;
+    color: #91b9ff !important;
+  }
+  .hero-title {
+    max-width: 100% !important;
+    margin: 0 0 20px !important;
+    font-size: clamp(2.7rem, 10.8vw, 4rem) !important;
+    line-height: .98 !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    max-width: 100% !important;
+    margin: 0 0 22px !important;
+    color: #f1f5fc !important;
+    font-size: clamp(.9rem, 3.8vw, 1.02rem) !important;
+    line-height: 1.5 !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+  .hero-actions .btn {
+    min-height: 52px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 13px 18px !important;
+    white-space: nowrap !important;
+    font-size: .88rem !important;
+  }
+  .hero-copy .hero-meta {
+    margin: auto 0 0 !important;
+    padding: 13px 15px !important;
+    max-width: 100% !important;
+    background: rgba(4,17,38,.86) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-left: 3px solid #7eaeff !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  /* Todos os cartões e fotografias usam o espaço inteiro, sem letterboxing. */
+  .treatment-track .treatment {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .treatment-track .treatment .treatment-media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .treatment-track .treatment .treatment-media img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  .treatment-track .treatment .treatment-content {
+    z-index: 3 !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(7,17,31,.2) 10%, rgba(7,17,31,.97) 40%) !important;
+  }
+  .team-photo {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+  .team-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    object-position: center 35% !important;
+  }
+  .location .location-facade,
+  .location .location-facade img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-grid,
+  .hero-copy { height: 790px !important; min-height: 790px !important; }
+  .hero-copy { width: 76% !important; }
+  .hero-title { font-size: clamp(2.45rem, 10vw, 2.9rem) !important; }
+}
+
+/* Imagens de galeria e demais imagens editoriais: sempre preencher o quadro. */
+.gallery-item img,
+.about-grid img,
+.intro img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
