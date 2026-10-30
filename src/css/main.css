@@ -1759,3 +1759,102 @@ section[id]{scroll-margin-top:96px}
   .location .location-media-grid .map{height:340px;min-height:340px;border-radius:22px}
   .location .location-media-grid .map iframe{height:340px;min-height:340px}
 }
+
+
+/* Imagens completas: preservar proporção original em desktop, notebook e celular. */
+.hero-person .hero-picture,
+.hero-person .hero-picture img {
+  object-fit: contain !important;
+}
+.hero-person .hero-picture img {
+  object-position: center center !important;
+}
+.treatment-media {
+  background: #172538 !important;
+}
+.treatment-media img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+@media (min-width: 701px) {
+  .intro {
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr) !important;
+  }
+  .team-feature {
+    width: 100% !important;
+  }
+  .team-photo {
+    width: 100% !important;
+  }
+  .team-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .hero-person .hero-picture img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .hero-person {
+    position: relative !important;
+    inset: auto !important;
+    order: -1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    margin: 0 0 20px !important;
+    overflow: visible !important;
+  }
+  .hero-person .hero-picture {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .hero-person .hero-picture img {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+  .hero-copy {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .hero-person:before,
+  .hero-person:after {
+    display: none !important;
+    content: none !important;
+  }
+  .team-photo,
+  .team-photo img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
