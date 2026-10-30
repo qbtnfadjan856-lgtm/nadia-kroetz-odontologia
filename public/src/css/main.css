@@ -1858,3 +1858,45 @@ section[id]{scroll-margin-top:96px}
     object-fit: contain !important;
   }
 }
+
+
+/* Imagens preenchendo os espaços: usar cover e permitir cortes proporcionais. */
+.hero-person .hero-picture,
+.hero-person .hero-picture img,
+.treatment-media img,
+.team-photo img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+@media (min-width: 701px) {
+  .team-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-person {
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .team-photo {
+    overflow: hidden !important;
+  }
+  .team-photo img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    object-fit: cover !important;
+  }
+}
