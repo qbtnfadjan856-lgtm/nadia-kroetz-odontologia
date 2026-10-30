@@ -5,10 +5,10 @@ const serviceData=[
  ['/assets/images/PROTESEDENTARIA.jpeg','02','Prótese dentária','Alternativas para recuperar função, conforto e estética.','prótese dentária'],
  ['/assets/images/ORTODONTIA.png','03','Ortodontia','Acompanhamento para alinhamento e saúde do sorriso.','ortodontia'],
  ['/assets/images/FACETASDERESINA.jpg','04','Facetas de resina','Procedimentos estéticos planejados para o sorriso.','facetas de resina'],
- ['/assets/images/treatment-03.jpg','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
+ ['/assets/images/FACETASDERESINA.jpg','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
  ['/assets/images/REABILITAÇÃOORAL.png','06','Reabilitação oral','Planejamento para recuperar estética e função.','reabilitação oral'],
  ['/assets/images/ENDODONTIA.png','07','Endodontia','Cuidados e tratamento de canal conforme indicação.','tratamento de canal'],
- ['/assets/images/treatment-01.jpg','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
+ ['/assets/images/IMPLANTESDENTARIOS.jpeg','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
  ['/assets/images/EXAMESDEIMAGEM.jpeg','09','Exames de imagem','Raio-X panorâmico e tomografia no consultório.','exames de imagem']
 ];
 const services=document.getElementById('services');
