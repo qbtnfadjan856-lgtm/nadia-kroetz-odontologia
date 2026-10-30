@@ -1900,3 +1900,145 @@ section[id]{scroll-margin-top:96px}
     object-fit: cover !important;
   }
 }
+
+
+/* Correção mobile: hero volta a ser uma composição única, com texto sobre a imagem. */
+@media (max-width: 700px) {
+  .hero {
+    position: relative !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+  }
+  .hero-grid {
+    position: relative !important;
+    display: block !important;
+    min-height: 790px !important;
+    height: min(900px, calc(100svh - 78px)) !important;
+    padding: 0 24px !important;
+    overflow: hidden !important;
+  }
+  .hero-person {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  .hero-copy {
+    position: relative !important;
+    z-index: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 68% !important;
+    max-width: 440px !important;
+    min-height: 790px !important;
+    padding: 54px 0 28px !important;
+    margin: 0 !important;
+  }
+  .hero-copy .eyebrow {
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+  }
+  .hero-title {
+    max-width: 100% !important;
+    font-size: clamp(2.55rem, 10.5vw, 4.1rem) !important;
+    line-height: .98 !important;
+    margin: 0 0 20px !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    max-width: 100% !important;
+    font-size: clamp(.9rem, 3.8vw, 1.05rem) !important;
+    line-height: 1.48 !important;
+    margin: 0 0 22px !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+  .hero-actions .btn {
+    min-height: 52px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 13px 18px !important;
+    white-space: nowrap !important;
+    font-size: clamp(.82rem, 3.5vw, .98rem) !important;
+  }
+  .hero-copy .hero-meta {
+    margin-top: auto !important;
+    padding: 13px 15px !important;
+    gap: 10px !important;
+    max-width: 100% !important;
+    background: rgba(7, 17, 31, .82) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  .hero-person:before,
+  .hero-person:after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* Tratamentos: a fotografia ocupa toda a área do cartão, sem faixa vazia superior. */
+@media (max-width: 700px) {
+  .treatment-track .treatment {
+    overflow: hidden !important;
+  }
+  .treatment-track .treatment .treatment-media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .treatment-track .treatment .treatment-media img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  .treatment-track .treatment .treatment-media:after {
+    background: linear-gradient(180deg, rgba(7,17,31,.02) 8%, rgba(7,17,31,.12) 38%, rgba(7,17,31,.96) 100%) !important;
+  }
+  .treatment-track .treatment .treatment-content {
+    z-index: 3 !important;
+    background: linear-gradient(180deg, transparent, rgba(7,17,31,.97) 30%) !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-grid, .hero-copy { min-height: 760px !important; }
+  .hero-copy { width: 72% !important; }
+  .hero-title { font-size: clamp(2.4rem, 10vw, 2.8rem) !important; }
+}
