@@ -2673,14 +2673,15 @@ img {
 }
 
 
-/* Hero: o botão secundário também usa fundo azul e texto branco. */
+/* Botão "Conhecer tratamentos": azul baseado na referência, levemente mais escuro.
+   * Regra global da hero: aplica em desktop e mobile. */
 .hero-actions .btn-outline {
-  background: #2563eb !important;
-  border: 1px solid #2563eb !important;
+  background: #1228b8 !important;
+  border: 1px solid #1228b8 !important;
   color: #ffffff !important;
 }
 .hero-actions .btn-outline:hover {
-  background: #1d4ed8 !important;
-  border-color: #1d4ed8 !important;
+  background: #1023a5 !important;
+  border-color: #1023a5 !important;
   color: #ffffff !important;
 }
