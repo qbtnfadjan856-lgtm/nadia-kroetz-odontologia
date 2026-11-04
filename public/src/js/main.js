@@ -1,15 +1,15 @@
 
 const WA='https://wa.me/555591027872';
 const serviceData=[
- ['/assets/images/IMPLANTESDENTARIOS.jpg?v=img-refresh-20261030b','01','Implantes dentários','Planejamento e soluções para reabilitação oral.','implantes dentários'],
- ['/assets/images/PROTESEDENTARIA.jpg?v=img-refresh-20261030b','02','Prótese dentária','Alternativas para recuperar função, conforto e estética.','prótese dentária'],
- ['/assets/images/ORTODONTIA.jpg?v=img-refresh-20261030b','03','Ortodontia','Acompanhamento para alinhamento e saúde do sorriso.','ortodontia'],
- ['/assets/images/FACETASDERESINA.jpg?v=img-refresh-20261030b','04','Facetas de resina','Procedimentos estéticos planejados para o sorriso.','facetas de resina'],
- ['/assets/images/PROTESEDENTARIA.jpg?v=img-refresh-20261030b','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
- ['/assets/images/REABILITAÇÃOORAL.jpg?v=img-refresh-20261030b','06','Reabilitação oral','Planejamento para recuperar estética e função.','reabilitação oral'],
- ['/assets/images/ENDODONTIA.jpg?v=img-refresh-20261030b','07','Endodontia','Cuidados e tratamento de canal conforme indicação.','tratamento de canal'],
- ['/assets/images/IMPLANTESDENTARIOS.jpg?v=img-refresh-20261030b','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
- ['/assets/images/EXAMESDEIMAGEM.jpg?v=img-refresh-20261030b','09','Exames de imagem','Raio-X panorâmico e tomografia no consultório.','exames de imagem']
+ ['/assets/images/IMPLANTESDENTARIOS.jpg?v=site-update-20261103','01','Implantes dentários','Planejamento e soluções para reabilitação oral.','implantes dentários'],
+ ['/assets/images/PROTESEDENTARIA.jpg?v=site-update-20261103','02','Prótese dentária','Alternativas para recuperar função, conforto e estética.','prótese dentária'],
+ ['/assets/images/ORTODONTIA.jpg?v=site-update-20261103','03','Ortodontia','Acompanhamento para alinhamento e saúde do sorriso.','ortodontia'],
+ ['/assets/images/FACETASDERESINA.jpg?v=site-update-20261103','04','Facetas de resina','Procedimentos estéticos planejados para o sorriso.','facetas de resina'],
+ ['/assets/images/PROTESEDENTARIA.jpg?v=site-update-20261103','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
+ ['/assets/images/REABILITAÇÃOORAL.jpg?v=site-update-20261103','06','Reabilitação oral','Planejamento para recuperar estética e função.','reabilitação oral'],
+ ['/assets/images/ENDODONTIA.jpg?v=site-update-20261103','07','Endodontia','Cuidados e tratamento de canal conforme indicação.','tratamento de canal'],
+ ['/assets/images/IMPLANTESDENTARIOS.jpg?v=site-update-20261103','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
+ ['/assets/images/EXAMESDEIMAGEM.jpg?v=site-update-20261103','09','Exames de imagem','Raio-X panorâmico e tomografia no consultório.','exames de imagem']
 ];
 const services=document.getElementById('services');
 const serviceCount=serviceData.length;
@@ -93,47 +93,55 @@ services.addEventListener('scroll',()=>{
   scheduleSettle();
 },{passive:true});
 
+let activePointerId = null;
+services.style.touchAction = 'pan-y';
 services.addEventListener('pointerdown',e=>{
-  isDown=true; horizontal=false; moved=false;
-  startX=e.clientX; startY=e.clientY; startScroll=services.scrollLeft;
-  lastX=e.clientX; lastT=performance.now();
+  if(e.pointerType==='mouse' && e.button!==0)return;
+  isDown=true;
+  horizontal=false;
+  moved=false;
+  activePointerId=e.pointerId;
+  startX=e.clientX;
+  startY=e.clientY;
+  startScroll=services.scrollLeft;
 });
 services.addEventListener('pointermove',e=>{
-  if(!isDown)return;
-  const totalX=e.clientX-startX, totalY=e.clientY-startY;
+  if(!isDown || e.pointerId!==activePointerId)return;
+  const dx=e.clientX-startX;
+  const dy=e.clientY-startY;
   if(!horizontal){
-    if(Math.abs(totalX)<8 && Math.abs(totalY)<8)return;
-    if(Math.abs(totalY)>Math.abs(totalX)){
+    if(Math.abs(dx)<7 && Math.abs(dy)<7)return;
+    if(Math.abs(dy)>Math.abs(dx)){
       isDown=false;
-      services.classList.remove('dragging');
+      activePointerId=null;
       return;
     }
     horizontal=true;
     services.classList.add('dragging');
-    moved=Math.abs(totalX)>=14;
     try{services.setPointerCapture(e.pointerId)}catch{}
   }
-  e.preventDefault();
-  services.scrollLeft=startScroll-totalX;
-  lastX=e.clientX; lastT=performance.now();
-});
-function endDrag(e){
-  if(!isDown)return;
-  const wasHorizontal=horizontal;
-  const totalX=e ? e.clientX-startX : 0;
-  isDown=false; horizontal=false; services.classList.remove('dragging');
-  if(!wasHorizontal)return;
-  const current=nearestCard();
-  let target=current;
-  if(Math.abs(totalX)>=18){
-    const idx=cards.indexOf(current);
-    // Cópias repetidas garantem que exista sempre um cartão à esquerda e à direita.
-    target=cards[Math.max(0,Math.min(cards.length-1,idx+(totalX<0?1:-1)))] || current;
+  if(horizontal){
+    e.preventDefault();
+    services.scrollLeft=startScroll-dx;
+    moved=Math.abs(dx)>8;
   }
+},{passive:false});
+function endDrag(e){
+  if(!isDown || (e && e.pointerId!==activePointerId))return;
+  const wasHorizontal=horizontal;
+  isDown=false;
+  horizontal=false;
+  activePointerId=null;
+  services.classList.remove('dragging');
+  if(!wasHorizontal)return;
+  // Snap to the card closest to the actual final pointer position; do not reverse direction.
+  const target=nearestCard();
   if(target)centerCard(target,scrollBehavior());
   scheduleSettle();
 }
-['pointerup','pointercancel','pointerleave'].forEach(ev=>services.addEventListener(ev,endDrag));
+services.addEventListener('pointerup',endDrag);
+services.addEventListener('pointercancel',endDrag);
+services.addEventListener('lostpointercapture',endDrag);
 
 function moveCarousel(dir){
   const current=nearestCard();
