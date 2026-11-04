@@ -2698,3 +2698,22 @@ img {
   border-color: #1023a5 !important;
   color: #ffffff !important;
 }
+
+
+/* Reforço de especificidade: botão Conhecer tratamentos azul em qualquer viewport. */
+.hero .hero-actions > a.btn.btn-outline,
+.hero .hero-actions > a.btn.btn-outline:visited,
+.hero .hero-actions > a.btn.btn-outline:focus {
+  background: #1228b8 !important;
+  background-color: #1228b8 !important;
+  background-image: none !important;
+  border-color: #1228b8 !important;
+  color: #ffffff !important;
+}
+.hero .hero-actions > a.btn.btn-outline:hover,
+.hero .hero-actions > a.btn.btn-outline:active {
+  background: #1023a5 !important;
+  background-color: #1023a5 !important;
+  border-color: #1023a5 !important;
+  color: #ffffff !important;
+}
