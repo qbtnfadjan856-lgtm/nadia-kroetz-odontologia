@@ -2459,3 +2459,51 @@ img {
     max-width: 760px !important;
   }
 }
+
+
+/* Tratamentos: cards compactos no mobile com vizinhos visíveis; desktop ligeiramente mais largo. */
+@media (min-width: 901px) {
+  .treatment-track {
+    --card-w: 350px;
+    gap: 18px;
+  }
+  .treatment-track .treatment {
+    height: 490px;
+  }
+}
+@media (max-width: 900px) {
+  .treatment-track {
+    --card-w: calc(100vw - 190px);
+    gap: 12px;
+    padding-inline: calc((100% - var(--card-w)) / 2);
+    scroll-padding-inline: calc((100% - var(--card-w)) / 2);
+  }
+  .treatment-track .treatment {
+    flex-basis: var(--card-w);
+    width: var(--card-w);
+    height: clamp(330px, 88vw, 370px);
+    border-radius: 24px;
+  }
+  .treatment-content {
+    left: 13px;
+    right: 13px;
+    bottom: 14px;
+    padding-top: 38px;
+  }
+  .treatment h3 {
+    font-size: clamp(1rem, 4.4vw, 1.2rem);
+  }
+  .treatment p {
+    font-size: .72rem;
+    line-height: 1.38;
+    margin-bottom: 10px;
+  }
+  .treatment .btn {
+    min-height: 40px;
+    padding: 9px 11px;
+    font-size: .76rem;
+  }
+}
+@media (max-width: 380px) {
+  .treatment-track { --card-w: calc(100vw - 180px); }
+}
