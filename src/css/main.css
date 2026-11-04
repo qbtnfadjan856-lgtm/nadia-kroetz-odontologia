@@ -2684,3 +2684,16 @@ img {
     min-height: 760px !important;
   }
 }
+
+
+/* Hero: o botão secundário também usa fundo azul e texto branco. */
+.hero-actions .btn-outline {
+  background: #2563eb !important;
+  border: 1px solid #2563eb !important;
+  color: #ffffff !important;
+}
+.hero-actions .btn-outline:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
