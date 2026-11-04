@@ -2397,3 +2397,156 @@ img {
     align-self: stretch !important;
   }
 }
+
+
+/* Correção real do layout desktop da hero e da seção de apresentação. */
+@media (min-width: 901px) {
+  .hero {
+    min-height: 790px !important;
+    height: 790px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #07111f !important;
+  }
+  .hero-grid {
+    width: min(1420px, calc(100% - 96px)) !important;
+    max-width: 1420px !important;
+    height: 790px !important;
+    min-height: 790px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+    gap: clamp(28px, 4vw, 72px) !important;
+    align-items: center !important;
+    padding: 54px 0 62px !important;
+  }
+  .hero-copy {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: 720px !important;
+    padding: 0 !important;
+    align-self: center !important;
+  }
+  .hero-copy .eyebrow {
+    color: #fff !important;
+    font-size: clamp(1rem, 1.25vw, 1.25rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: .11em !important;
+    line-height: 1.5 !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,.7) !important;
+    margin: 0 0 20px !important;
+  }
+  .hero-title {
+    color: #fff !important;
+    font-size: clamp(4rem, 5.15vw, 5.8rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.055em !important;
+    margin: 0 0 28px !important;
+    max-width: 100% !important;
+  }
+  .hero-title .line-blue { color: #8ab8ff !important; }
+  .hero-copy > p {
+    color: #fff !important;
+    font-size: clamp(1.15rem, 1.35vw, 1.4rem) !important;
+    line-height: 1.65 !important;
+    font-weight: 500 !important;
+    max-width: 610px !important;
+    margin: 0 0 30px !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,.72) !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin: 0 !important;
+  }
+  .hero-actions .btn {
+    min-height: 58px !important;
+    padding: 17px 25px !important;
+    font-size: .96rem !important;
+    white-space: nowrap !important;
+  }
+  .hero-meta {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 38px !important;
+    margin: 30px 0 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .hero-meta strong {
+    color: #fff !important;
+    font-size: 1.35rem !important;
+    line-height: 1.35 !important;
+  }
+  .hero-meta span {
+    color: #fff !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  .hero-person {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture,
+  .hero-person .hero-picture img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .hero-person .hero-picture img {
+    object-fit: cover !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  /* Apresentação: duas colunas reais, título e texto lado a lado com largura suficiente. */
+  .intro {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1.2fr) !important;
+    gap: clamp(32px, 4vw, 68px) !important;
+    align-items: center !important;
+  }
+  .intro-left {
+    display: grid !important;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+    gap: clamp(22px, 2.4vw, 38px) !important;
+    align-items: center !important;
+    min-width: 0 !important;
+  }
+  .intro-title,
+  .intro-copy,
+  .team-feature {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  .intro h2 {
+    font-size: clamp(2.45rem, 3.05vw, 3.7rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.045em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    max-width: 12ch !important;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .intro-left {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 24px !important;
+  }
+  .intro h2 {
+    font-size: clamp(2.2rem, 4vw, 3rem) !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+}
