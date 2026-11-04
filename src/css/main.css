@@ -2404,3 +2404,45 @@ img {
     hyphens: none !important;
   }
 }
+
+
+/* Refinamento desktop da hero: enquadramento, hierarquia e legibilidade. */
+@media (min-width: 901px) {
+  .hero-person .hero-picture {
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    transform: scale(1.035) !important;
+    transform-origin: 68% 50% !important;
+    object-position: 68% 50% !important;
+  }
+  .hero-title .line-blue {
+    color: #82adff !important;
+  }
+  .hero-copy > p {
+    font-size: clamp(1.2rem, 1.48vw, 1.5rem) !important;
+    line-height: 1.65 !important;
+    max-width: 640px !important;
+  }
+  .hero-actions .btn {
+    min-height: 62px !important;
+    padding: 19px 28px !important;
+    font-size: 1.02rem !important;
+  }
+  .hero-meta strong {
+    font-size: 1.48rem !important;
+  }
+  .hero-meta span {
+    font-size: 1.08rem !important;
+  }
+  .treatment-track .treatment {
+    min-height: 620px !important;
+  }
+  .treatment-track .treatment .treatment-content h3 {
+    font-size: clamp(1.65rem, 1.9vw, 2rem) !important;
+  }
+  .treatment-track .treatment .treatment-content p {
+    font-size: 1.08rem !important;
+    line-height: 1.55 !important;
+  }
+}
