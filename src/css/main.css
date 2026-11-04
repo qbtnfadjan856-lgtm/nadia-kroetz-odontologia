@@ -2280,3 +2280,29 @@ img {
   height: 100% !important;
   object-fit: cover !important;
 }
+
+
+/* Revisão solicitada em 03/11/2026 */
+.hero-title-line{display:block;white-space:nowrap}
+@media(min-width:701px){
+  .hero{padding:0!important;min-height:0!important}
+  .hero-grid{min-height:740px!important;grid-template-columns:.92fr 1.08fr!important;gap:0!important}
+  .hero-person{height:740px!important;min-height:740px!important;margin:0!important}
+  .hero-person .hero-picture,.hero-person .hero-picture img{width:100%!important;height:100%!important}
+  .hero-person .hero-picture img{object-fit:cover!important;object-position:center center!important}
+  .team-feature{min-width:0!important}
+  .team-photo{height:430px!important;min-height:430px!important;overflow:hidden!important}
+  .team-photo img{height:430px!important;min-height:0!important;object-fit:cover!important;object-position:center 38%!important}
+}
+@media(max-width:700px){
+  .hero-grid{height:820px!important;min-height:820px!important}
+  .hero-person .hero-picture img{object-position:72% center!important}
+  .hero-copy{width:76%!important}
+  .hero-title{font-size:clamp(2.35rem,9.4vw,3.5rem)!important;line-height:.98!important}
+  .hero-title-line{display:block!important;white-space:nowrap!important;width:max-content!important;max-width:none!important}
+  .hero-copy .eyebrow{max-width:100%!important}
+  .treatment-track .treatment .treatment-media{inset:0!important;width:100%!important;height:100%!important}
+  .treatment-track .treatment .treatment-media img{width:100%!important;height:100%!important;object-fit:cover!important}
+  .treatment-track .treatment .treatment-media:after{inset:0!important;background:linear-gradient(180deg,rgba(7,17,31,.01) 8%,rgba(7,17,31,.10) 38%,rgba(7,17,31,.82) 100%)!important}
+  .treatment-track .treatment .treatment-content{left:14px!important;right:14px!important;bottom:14px!important;background:none!important}
+}
