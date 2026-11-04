@@ -2351,3 +2351,56 @@ img {
     max-width: 100% !important;
   }
 }
+
+
+/* Correção pontual desktop conforme referência enviada. */
+@media (min-width: 901px) {
+  /* Recupera o enquadramento preenchido da fotografia, com zoom/corte natural. */
+  .hero-person .hero-picture {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: 68% center !important;
+    transform: scale(1.08) !important;
+    transform-origin: 68% center !important;
+  }
+
+  /* Foto da equipe retorna à largura integral original da coluna. */
+  .team-feature {
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+  }
+  .team-photo {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Garante que "Odontologia" permaneça inteira na primeira linha. */
+  .intro-left {
+    grid-template-columns: minmax(340px, 1.15fr) minmax(0, .85fr) !important;
+    gap: 28px !important;
+  }
+  .intro-title {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  .intro-title h2 {
+    max-width: none !important;
+    width: 100% !important;
+    font-size: clamp(2.3rem, 3.2vw, 3.65rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.05em !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    hyphens: none !important;
+  }
+}
