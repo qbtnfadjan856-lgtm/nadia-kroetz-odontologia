@@ -2634,3 +2634,53 @@ img {
     transform: none !important;
   }
 }
+
+
+/* Ajuste definitivo mobile: a hero inteira fica mais curta; a foto continua preenchendo toda a área como fundo, sem deslocamento/letterbox. */
+@media (max-width: 700px) {
+  .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  .hero-grid {
+    height: 760px !important;
+    min-height: 760px !important;
+  }
+  .hero-person {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+  .hero-person .hero-picture {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .hero-person .hero-picture img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: 72% center !important;
+    transform: none !important;
+  }
+  .hero-copy {
+    height: 760px !important;
+    min-height: 760px !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-grid,
+  .hero-copy {
+    height: 760px !important;
+    min-height: 760px !important;
+  }
+}
