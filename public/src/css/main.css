@@ -2530,3 +2530,37 @@ img {
     line-height: 1.55 !important;
   }
 }
+
+
+/* Hero: mais presença vertical no desktop, descrição em quatro linhas e enquadramento mobile à esquerda. */
+@media (min-width: 901px) {
+  .hero-grid {
+    min-height: 900px !important;
+    height: 900px !important;
+    align-items: stretch !important;
+  }
+  .hero-person {
+    height: 900px !important;
+    min-height: 900px !important;
+  }
+  .hero-person .hero-picture,
+  .hero-person .hero-picture img {
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+  .hero-person .hero-picture img {
+    object-fit: cover !important;
+    object-position: 68% center !important;
+    transform: none !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    max-width: 700px !important;
+    font-size: clamp(1.32rem, 1.48vw, 1.48rem) !important;
+    line-height: 1.58 !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-person .hero-picture img {
+    object-position: 72% center !important;
+  }
+}
