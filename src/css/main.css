@@ -2446,3 +2446,16 @@ img {
     line-height: 1.55 !important;
   }
 }
+
+
+/* Descrição da hero desktop: mais largura para distribuir o texto em cerca de 4 linhas. */
+@media (min-width: 901px) {
+  .hero-copy {
+    width: 64% !important;
+    max-width: 820px !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    width: 100% !important;
+    max-width: 760px !important;
+  }
+}
