@@ -2507,3 +2507,39 @@ img {
 @media (max-width: 380px) {
   .treatment-track { --card-w: calc(100vw - 180px); }
 }
+
+
+/* Hero desktop: imagem preenchendo a coluna sem zoom artificial e texto em ~4 linhas. */
+@media (min-width: 901px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+    align-items: stretch !important;
+  }
+  .hero-person,
+  .hero-person .hero-picture {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-person .hero-picture img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: 68% center !important;
+    transform: none !important;
+  }
+  .hero-copy {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    width: 100% !important;
+    max-width: 700px !important;
+    font-size: clamp(1.12rem, 1.32vw, 1.34rem) !important;
+    line-height: 1.55 !important;
+  }
+}
