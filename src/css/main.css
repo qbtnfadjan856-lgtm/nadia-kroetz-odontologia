@@ -2613,3 +2613,24 @@ img {
     touch-action: pan-x pan-y !important;
   }
 }
+
+
+/* Mobile hero: reduzir a altura total sem encolher nem cortar a fotografia. */
+@media (max-width: 700px) {
+  .hero-grid {
+    height: 740px !important;
+    min-height: 740px !important;
+  }
+  .hero-person,
+  .hero-person .hero-picture {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+  .hero-person .hero-picture img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+}
