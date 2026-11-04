@@ -2564,3 +2564,39 @@ img {
     object-position: 72% center !important;
   }
 }
+
+
+/* Refinos finais da hero e gesto horizontal independente no carrossel mobile. */
+@media (min-width: 901px) {
+  .hero-person .hero-picture img {
+    object-position: 68% 72% !important;
+  }
+  .hero-meta {
+    transform: translateX(-42px) !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-person {
+    height: clamp(300px, 78vw, 360px) !important;
+    min-height: 0 !important;
+  }
+  .hero-person .hero-picture,
+  .hero-person .hero-picture img {
+    height: 100% !important;
+  }
+  .hero-person .hero-picture img {
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+  .treatment-track {
+    touch-action: pan-x pan-y !important;
+    overscroll-behavior-x: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  .treatment-track .treatment {
+    touch-action: pan-x pan-y !important;
+  }
+}
