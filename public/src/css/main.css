@@ -2448,6 +2448,19 @@ img {
 }
 
 
+/* Descrição da hero desktop: mais largura para distribuir o texto em cerca de 4 linhas. */
+@media (min-width: 901px) {
+  .hero-copy {
+    width: 64% !important;
+    max-width: 820px !important;
+  }
+  .hero-copy > p:not(.hero-reassurance) {
+    width: 100% !important;
+    max-width: 760px !important;
+  }
+}
+
+
 /* Tratamentos: cards compactos no mobile com vizinhos visíveis; desktop ligeiramente mais largo. */
 @media (min-width: 901px) {
   .treatment-track {
