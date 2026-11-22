@@ -78,7 +78,11 @@
   if (banner) {
     const savedChoice = readChoice();
     if (savedChoice === 'accepted') loadOptionalFonts();
-    banner.hidden = Boolean(savedChoice);
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+    const isReload = navigationEntry && navigationEntry.type === 'reload';
+    // A escolha aceita evita repetir o aviso ao navegar para outra página do site.
+    // Ao recarregar a página, o aviso aparece novamente para uma nova confirmação.
+    banner.hidden = savedChoice === 'accepted' && !isReload;
 
     if (acceptButton) acceptButton.addEventListener('click', () => choose('accepted'));
     if (rejectButton) rejectButton.addEventListener('click', () => choose('rejected'));
