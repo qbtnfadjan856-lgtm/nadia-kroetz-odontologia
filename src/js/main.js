@@ -196,4 +196,4 @@ function closeLB(){if(lb.getAttribute('aria-hidden')==='true')return;lb.classLis
 lbClose.addEventListener('click',closeLB);lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
 lb.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeLB();return;}if(e.key==='Tab'){const focusable=Array.from(lb.querySelectorAll('button,[href],input,[tabindex]:not([tabindex="-1"])')).filter(el=>!el.disabled);if(!focusable.length){e.preventDefault();lb.focus();return;}const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 
-/* O mapa do Google é carregado automaticamente pelo iframe presente no HTML. */
+/* O mapa do Google só é criado pelo módulo de privacidade após ação expressa do visitante. */
