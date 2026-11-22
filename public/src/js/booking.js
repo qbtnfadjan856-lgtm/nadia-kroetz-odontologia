@@ -15,7 +15,7 @@
   ];
   const DAYS=['Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
   const $=id=>document.getElementById(id);
-  const state={service:null,day:null,period:null,name:'',step:1};
+  const state={service:null,day:null,period:null,step:1};
   const options=$('bookingOptions');
   BOOK_SERVICES.forEach((s,i)=>{
     const wrap=document.createElement('div');wrap.className='book-option';
@@ -24,11 +24,11 @@
   });
   const days=$('bookingDays'), periods=$('bookingPeriods');
   DAYS.forEach(d=>{const w=document.createElement('div');w.className='choice';w.innerHTML=`<input id="day-${d}" type="radio" name="book-day" value="${d}" aria-describedby="bookingDaysLabel"><label for="day-${d}">${d}</label>`;days.appendChild(w)});
-  ['Manhã','Tarde'].forEach(p=>{const w=document.createElement('div');w.className='choice';w.innerHTML=`<input id="period-${p}" type="radio" name="book-period" value="${p}" aria-describedby="bookingPeriodsLabel"><label for="period-${p}">${p}</label>`;periods.appendChild(w)});
+  [['Manhã','Manhã · 08h às 12h'],['Tarde','Tarde · 13h30 às 19h']].forEach(([value,label])=>{const w=document.createElement('div');w.className='choice';w.innerHTML=`<input id="period-${value}" type="radio" name="book-period" value="${value}" aria-describedby="bookingPeriodsLabel"><label for="period-${value}">${label}</label>`;periods.appendChild(w)});
 
   const stepEls=[...document.querySelectorAll('.booking-steps li')];
   function updateSteps(){stepEls.forEach((x,i)=>{x.classList.toggle('active',i<state.step);if(i===state.step-1)x.setAttribute('aria-current','step');else x.removeAttribute('aria-current');});}
-  function valid(){return state.step===1?state.service!==null:state.step===2?!!(state.name.trim()&&state.day&&state.period):true}
+  function valid(){return state.step===1?state.service!==null:state.step===2?!!(state.day&&state.period):true}
   function updateSelectedService(){
     const svc=state.service!==null?BOOK_SERVICES[state.service]:null;
     $('selectedServiceName').textContent=svc?svc[0]:'—';
@@ -38,7 +38,7 @@
     $('bookStep1').hidden=n!==1;$('bookStep2').hidden=n!==2;$('bookStep3').hidden=n!==3;
     $('bookingBack').hidden=n===1;
     $('bookingNext').querySelector('span').textContent=n===3?'Abrir WhatsApp':'Continuar';
-    $('bookingError').textContent=''; $('bookingName').removeAttribute('aria-invalid'); updateSteps(); updateButton();
+    $('bookingError').textContent=''; updateSteps(); updateButton();
     if(n===3) renderSummary();
     const heading=$('bookStep'+n).querySelector('h3');if(heading){heading.setAttribute('tabindex','-1');requestAnimationFrame(()=>heading.focus({preventScroll:true}));}
   }
@@ -65,12 +65,6 @@
     updateButton();
     guideToContinue();
   });
-  $('bookingName').addEventListener('input',e=>{
-    state.name=e.target.value;
-    if(state.name.trim()){$('bookingName').removeAttribute('aria-invalid');if($('bookingError').textContent.includes('nome'))$('bookingError').textContent='';}
-    updateButton();
-  });
-
   days.addEventListener('change',e=>{
     state.day=e.target.value;
     const sat=state.day==='Sábado';
@@ -88,8 +82,7 @@
 
   function openBooking(serviceIndex=null){
     if(serviceIndex!==null){state.service=serviceIndex;const input=document.getElementById('book-service-'+serviceIndex);if(input)input.checked=true}
-    state.day=null;state.period=null;state.name='';
-    $('bookingName').value='';
+    state.day=null;state.period=null;
     updateSelectedService();
     document.querySelectorAll('input[name="book-day"],input[name="book-period"]').forEach(i=>i.checked=false);
     document.querySelector('input[name="book-period"][value="Tarde"]').disabled=false;
@@ -120,13 +113,12 @@
   $('bookingNext').addEventListener('click',()=>{
     if(!valid()){
       if(state.step===1){$('bookingError').textContent='Selecione um serviço para continuar.';const first=$('bookingOptions').querySelector('input');if(first)first.focus();}
-      else if(!state.name.trim()){$('bookingName').setAttribute('aria-invalid','true');$('bookingError').textContent='Informe seu nome no campo “Seu nome” para continuar.';$('bookingName').focus();}
       else if(!state.day){$('bookingError').textContent='Selecione um dia da semana para continuar.';const first=$('bookingDays').querySelector('input');if(first)first.focus();}
       else{$('bookingError').textContent='Selecione um período para continuar.';const first=$('bookingPeriods').querySelector('input:not(:disabled)');if(first)first.focus();}return;
     }
     if(state.step<3){showStep(state.step+1);return}
     const svc=BOOK_SERVICES[state.service];
-    const msg=`Olá! Meu nome é ${state.name}. Quero agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
+    const msg=`Olá! Gostaria de agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');
   });
   $('bookingBack').addEventListener('click',()=>showStep(Math.max(1,state.step-1)));
@@ -136,7 +128,6 @@
     const summary=$('bookingSummary');
     summary.replaceChildren();
     const rows=[
-      ['Nome',state.name],
       ['Serviço',svc[0]],
       ['Dia',state.day],
       ['Período',state.period]
@@ -151,7 +142,7 @@
       card.append(caption,detail);
       summary.appendChild(card);
     });
-    const msg=`Olá! Meu nome é ${state.name}. Quero agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
+    const msg=`Olá! Gostaria de agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
     const preview=$('bookingMessage');
     preview.replaceChildren();
     const heading=document.createElement('small');
