@@ -31,7 +31,8 @@
   function valid(){return state.step===1?state.service!==null:state.step===2?!!(state.day&&state.period):true}
   function updateSelectedService(){
     const svc=state.service!==null?BOOK_SERVICES[state.service]:null;
-    $('selectedServiceName').textContent=svc?svc[0]:'—';
+    const selectedName=$('selectedServiceName');
+    if(selectedName) selectedName.textContent=svc?svc[0]:'—';
   }
   function showStep(n){
     state.step=n;
