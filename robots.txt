@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /src/js/
+Disallow: /src/css/
+Disallow: /public/
+
+Sitemap: https://nadia-kroetz-odontologia.vercel.app/sitemap.xml
