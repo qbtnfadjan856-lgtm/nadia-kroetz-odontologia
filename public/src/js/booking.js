@@ -120,7 +120,7 @@
     if(state.step<3){showStep(state.step+1);return}
     const svc=BOOK_SERVICES[state.service];
     const msg=`Olá! Gostaria de agendar uma avaliação para ${svc[1]}. Minha preferência é ${state.day}, ${state.period.toLowerCase()}.`;
-    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');
+    window.location.assign(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`);
   });
   $('bookingBack').addEventListener('click',()=>showStep(Math.max(1,state.step-1)));
 
