@@ -187,7 +187,7 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   revealTargets.forEach(el => revealObserver.observe(el));
 }
 
-document.getElementById('waFloat').onclick=()=>window.open(WA,'_blank','noopener,noreferrer');
+document.getElementById('waFloat').onclick=()=>window.location.assign(WA);
 
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),lbClose=document.getElementById('closeLightbox');
 let lightboxOpener=null;
