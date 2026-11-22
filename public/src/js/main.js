@@ -1,15 +1,15 @@
 
 const WA='https://wa.me/555591027872';
 const serviceData=[
- ['/images/IMPLANTESDENTARIOS.webp?v=webp-images-20261122','01','Implantes dentários','Planejamento e soluções para reabilitação oral.','implantes dentários'],
- ['/images/PROTESEDENTARIA.webp?v=webp-images-20261122','02','Prótese dentária','Alternativas para recuperar função, conforto e estética.','prótese dentária'],
- ['/images/ORTODONTIA.webp?v=webp-images-20261122','03','Ortodontia','Acompanhamento para alinhamento e saúde do sorriso.','ortodontia'],
- ['/images/FACETASDERESINA.webp?v=webp-images-20261122','04','Facetas de resina','Procedimentos estéticos planejados para o sorriso.','facetas de resina'],
- ['/images/PROTESEDENTARIA.webp?v=webp-images-20261122','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
- ['/images/REABILITAÇÃOORAL.webp?v=webp-images-20261122','06','Reabilitação oral','Planejamento para recuperar estética e função.','reabilitação oral'],
- ['/images/ENDODONTIA.webp?v=webp-images-20261122','07','Endodontia','Cuidados e tratamento de canal conforme indicação.','tratamento de canal'],
- ['/images/IMPLANTESDENTARIOS.webp?v=webp-images-20261122','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
- ['/images/EXAMESDEIMAGEM.webp?v=webp-images-20261122','09','Exames de imagem','Raio-X panorâmico e tomografia no consultório.','exames de imagem']
+ ['/images/IMPLANTESDENTARIOS.jpg?v=jpg-images-20261122','01','Implantes dentários','Planejamento e soluções para reabilitação oral.','implantes dentários'],
+ ['/images/PROTESEDENTARIA.jpg?v=jpg-images-20261122','02','Prótese dentária','Alternativas para recuperar função, conforto e estética.','prótese dentária'],
+ ['/images/ORTODONTIA.jpg?v=jpg-images-20261122','03','Ortodontia','Acompanhamento para alinhamento e saúde do sorriso.','ortodontia'],
+ ['/images/FACETASDERESINA.jpg?v=jpg-images-20261122','04','Facetas de resina','Procedimentos estéticos planejados para o sorriso.','facetas de resina'],
+ ['/images/PROTESEDENTARIA.jpg?v=jpg-images-20261122','05','Lentes de porcelana','Soluções estéticas personalizadas para cada caso.','lentes de porcelana'],
+ ['/images/REABILITAÇÃOORAL.jpg?v=jpg-images-20261122','06','Reabilitação oral','Planejamento para recuperar estética e função.','reabilitação oral'],
+ ['/images/ENDODONTIA.jpg?v=jpg-images-20261122','07','Endodontia','Cuidados e tratamento de canal conforme indicação.','tratamento de canal'],
+ ['/images/IMPLANTESDENTARIOS.jpg?v=jpg-images-20261122','08','Cirurgias odontológicas','Procedimentos conforme avaliação profissional.','cirurgia odontológica'],
+ ['/images/EXAMESDEIMAGEM.jpg?v=jpg-images-20261122','09','Exames de imagem','Raio-X panorâmico e tomografia no consultório.','exames de imagem']
 ];
 const services=document.getElementById('services');
 const serviceCount=serviceData.length;
