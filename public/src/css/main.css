@@ -2704,3 +2704,27 @@ img {
   border-color: #1023a5 !important;
   color: #ffffff !important;
 }
+
+
+/* Privacidade, consentimento e mapa carregado somente após ação do visitante. */
+.privacy-banner{position:fixed;z-index:250;left:20px;right:20px;bottom:20px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;max-width:1120px;margin:auto;padding:24px 26px;border:1px solid rgba(255,255,255,.13);border-radius:22px;background:#0b192a;color:#fff;box-shadow:0 24px 70px rgba(0,0,0,.34)}
+.privacy-banner[hidden]{display:none}
+.privacy-banner-copy{max-width:690px}
+.privacy-eyebrow{display:block;margin-bottom:7px;color:#8eb8f5;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.privacy-banner h2{margin:0 0 7px;color:#fff;font:700 1.2rem/1.25 'Syne',Arial,sans-serif}
+.privacy-banner p{margin:0 0 8px;color:#c1ccda;font-size:.84rem;line-height:1.55}
+.privacy-banner a{color:#a8c9fa;font-size:.8rem;text-decoration:underline;text-underline-offset:3px}
+.privacy-banner-actions{display:flex;flex-wrap:wrap;gap:9px;flex:0 0 auto}
+.privacy-banner-actions button{min-height:44px;padding:10px 15px;border-radius:999px;font:700 .78rem 'DM Sans',Arial,sans-serif;cursor:pointer}
+.privacy-accept{border:1px solid #fff;background:#fff;color:#09182a}
+.privacy-reject{border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff}
+.privacy-banner-actions button:hover{transform:translateY(-1px)}
+.privacy-settings-link{border:0;padding:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.map-consent{min-height:inherit;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:34px;text-align:center;color:#fff;background:radial-gradient(ellipse at 20% 20%,rgba(83,132,190,.2),transparent 48%),linear-gradient(135deg,#10233a,#091524)}
+.map-consent-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);border-radius:50%;font-size:1.6rem;color:#b9d1f2}
+.map-consent h3{margin:0;color:#fff;font:700 clamp(1.25rem,2.5vw,1.7rem)/1.2 'Syne',Arial,sans-serif}
+.map-consent p{max-width:520px;margin:0;color:#c0ccda;font-size:.87rem;line-height:1.6}
+.map-consent .map-load{min-height:0;height:auto;width:auto;padding:0;border:0;background:transparent}
+.map-consent .map-load-action{display:inline-flex;align-items:center;gap:9px;margin-top:8px;padding:12px 18px;border:1px solid rgba(255,255,255,.48);border-radius:999px;color:#fff;font-size:.85rem;font-weight:700}
+.map-consent .map-load:hover .map-load-action{background:rgba(255,255,255,.1)}
+@media(max-width:760px){.privacy-banner{left:10px;right:10px;bottom:10px;display:block;padding:20px;border-radius:18px}.privacy-banner-actions{margin-top:15px}.privacy-banner-actions button{flex:1 1 140px}.map-consent{padding:24px 18px}}
