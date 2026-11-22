@@ -4,6 +4,7 @@
 
 ## Site
 - Página inicial: https://nadia-kroetz-odontologia.vercel.app/
+- Guia de tratamentos odontológicos: https://nadia-kroetz-odontologia.vercel.app/tratamentos.html
 - Política de privacidade e cookies: https://nadia-kroetz-odontologia.vercel.app/privacidade.html
 - Agendamento: seção de agendamento na página inicial; solicitações são encaminhadas ao WhatsApp para confirmação pela equipe.
 - Localização: Av. Santa Rosa, 167, Crissiumal, RS, Brasil.
