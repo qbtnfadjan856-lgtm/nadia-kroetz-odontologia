@@ -1,12 +1,16 @@
 (() => {
   'use strict';
 
-  const CONSENT_KEY = 'nk-cookie-consent-v1';
+  const CONSENT_KEY = 'nk-cookie-consent-v2';
+  const LEGACY_CONSENT_KEY = 'nk-cookie-consent-v1';
   const CONSENT_LIFETIME = 365 * 24 * 60 * 60 * 1000;
   const banner = document.getElementById('privacyBanner');
   const acceptButton = document.getElementById('acceptOptional');
   const rejectButton = document.getElementById('rejectOptional');
   const settingsButton = document.getElementById('managePrivacy');
+
+  // Limpa a decisão anterior para solicitar uma nova escolha após a atualização do aviso.
+  try { window.localStorage.removeItem(LEGACY_CONSENT_KEY); } catch { /* armazenamento indisponível */ }
 
   function readChoice() {
     try {
