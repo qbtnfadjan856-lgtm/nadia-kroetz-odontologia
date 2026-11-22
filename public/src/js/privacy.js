@@ -56,6 +56,10 @@
     document.head.appendChild(stylesheet);
   }
 
+  function disableOptionalFonts() {
+    document.querySelectorAll('link[data-optional-google-fonts]').forEach((link) => link.remove());
+  }
+
   function closeBanner() {
     if (banner) banner.hidden = true;
   }
@@ -63,6 +67,7 @@
   function choose(choice) {
     saveChoice(choice);
     if (choice === 'accepted') loadOptionalFonts();
+    else disableOptionalFonts();
     closeBanner();
   }
 
